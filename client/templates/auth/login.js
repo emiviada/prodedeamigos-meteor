@@ -10,6 +10,26 @@ if (Meteor.isClient) {
     Template.login.events({
         'submit form': function(e) {
             e.preventDefault();
+        },
+        'click .btn-facebook': function(e) {
+        	e.preventDefault();
+        	Meteor.loginWithFacebook({}, function(err) {
+	            if (err) {
+	                throw new Meteor.Error("Facebook login failed");
+	            } else { // Success
+	            	Router.go('home');
+	            }
+	        });
+        },
+        'click .btn-twitter': function(e) {
+        	e.preventDefault();
+        	Meteor.loginWithTwitter({}, function(err) {
+	            if (err) {
+	                throw new Meteor.Error("Twitter login failed");
+	            } else { // Success
+	            	Router.go('home');
+	            }
+	        });
         }
     });
     Template.login.onCreated(function() {
