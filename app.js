@@ -1,19 +1,27 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
-
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
-
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
+    // Set validator defaults
+    $.validator.setDefaults({
+        rules: {
+            password: {
+                minlength: 6
+            }
+        },
+        messages: {
+            email: {
+                required: 'Este campo es requerido',
+                email: 'Por favor, ingresa un email valido'
+            },
+            password: {
+                required: 'Este campo es requerido',
+                minlength: 'Por favor, ingresa al menos {0} caracteres'
+            },
+            confirm: {
+                required: 'Este campo es requerido',
+                minlength: 'Por favor, ingresa al menos {0} caracteres',
+                equalTo: 'Los passwords no coindiden'
+            }
+        }
+    });
 }
 
 if (Meteor.isServer) {
@@ -21,3 +29,13 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
 }
+
+/*** ADMIN ***/
+AdminConfig = {
+    name: 'Prode de Amigos',
+    adminEmails: ['emjovi@gmail.com'],
+    roles: ['admin'],
+    collections: {
+        Teams: {}
+    }
+};

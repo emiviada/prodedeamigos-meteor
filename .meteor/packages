@@ -24,3 +24,9 @@ accounts-password
 alanning:roles
 twbs:bootstrap
 fortawesome:fontawesome
+less
+yogiben:admin
+accounts-ui
+ejson
+spacebars
+themeteorchef:jquery-validation
