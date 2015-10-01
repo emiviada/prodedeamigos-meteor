@@ -66,6 +66,38 @@
         padding: 10px 45px 0 20px!important;
         height: 40px!important;
     }
+    #skin-select #toggle {
+        display: none!important;
+    }
+    #skin-select {
+        left:-250px!important;
+        top: 31px!important;
+    }
+    #skin-select li {
+        text-align: right!important;
+    }
+    .side-bar {
+        margin-top: -29px!important;
+        display: block!important;
+    }
+    #menu-showhide, .menu-left-nest {
+        border-radius: 0 !important;
+        margin: 1px 0 0 !important;
+    }
+    .tooltip-tip2, .tooltip-tip {
+        display: block!important;
+    }
+    .wrap-fluid {
+        float: right!important;
+        width: 100%!important;
+    }
+    #paper-top {
+        padding: 0 20px 0 30px !important;
+        height: auto;
+    }
+    .tittle-content-header {
+        margin: 0 0 0 30px!important;
+    }
  }
  @media (min-width: 768px) {
 	.navbar {

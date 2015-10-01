@@ -2,5 +2,20 @@
 	<!-- TOP NAVBAR -->
     {{> navigation}}
 
-    {{> yield}}
+    <!-- SIDE MENU -->
+    {{> sidebar}}
+
+    <!--  PAPER WRAP -->
+    <div class="wrap-fluid">
+        <div class="container-fluid paper-wrap bevel tlbr">
+
+            <!-- TITLE -->
+            {{> pageTitle}}
+
+            {{> yield}}
+
+        </div>
+    </div>
+    <!--  END OF PAPER WRAP -->
+
 </template>
