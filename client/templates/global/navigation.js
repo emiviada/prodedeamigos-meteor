@@ -23,11 +23,6 @@ if (Meteor.isClient) {
             pauseOnHover: 0
         });
     });
-    Template.navigation.helpers({
-        'username': function() {
-            return userFullname();
-        }
-    });
     Template.navigation.events({
         'click .logout': function(e) {
           e.preventDefault();

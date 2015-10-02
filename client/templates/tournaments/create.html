@@ -1,0 +1,75 @@
+<template name="createTournament">
+	<div class="col-sm-12">
+        <div class="nest" id="verticalClose">
+            <div class="title-alt">
+                <h6>Crear Torneo</h6>
+                <!--<div class="titleClose">
+                    <a class="gone" href="#verticalClose">
+                        <span class="entypo-cancel"></span>
+                    </a>
+                </div>
+                <div class="titleToggle">
+                    <a class="nav-toggle-alt" href="#vertical">
+                        <span class="entypo-up-open"></span>
+                    </a>
+                </div>-->
+            </div>
+
+            <div class="body-nest" id="vertical">
+                <div id="wizard_vertical">
+                    <h2>Crear Torneo</h2>
+                    <section>
+                        <form role="form" class="tournament-form">
+                        	<div class="form-group">
+                                <label for="tournament">Torneo</label>
+                                <select size="1" name="tournament" id="tournament" class="form-control" required>
+                                	<option value="">Elige un torneo</option>
+                                	<option value="1">Fake torneo</option>
+                                	<option value="">Elige un torneo</option>
+                                </select>
+                                <p class="help-block">Competición en la que se basará el torneo.</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Nombre</label>
+                                <input type="text" placeholder="Nombre del torneo" id="fname" name="fname" class="form-control" required>
+                            </div>
+                            <div class="row">
+                            	<div class="form-group col-sm-6">
+	                                <label for="points">Pts por acierto</label>
+	                                <select name="points" size="1" class="form-control" required>
+	                                	<option value="3">3</option>
+	                                	<option value="4">4</option>
+	                                	<option value="5">5</option>
+	                                	<option value="6">6</option>
+	                                	<option value="7">7</option>
+	                                	<option value="8">8</option>
+	                                	<option value="9">9</option>
+	                                	<option value="10">10</option>
+	                                </select>
+	                            </div>
+	                            <div class="form-group col-sm-6" id="points-exact-wrapper" style="display: none;">
+	                                <label for="points-exact">Pts por acierto exacto</label>
+	                                <select name="points-exact" class="form-control" size="1">
+	                                	<option value="1">1</option>
+	                                	<option value="2">2</option>
+	                                	<option value="3">3</option>
+	                                </select>
+	                            </div>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="exact" class="pretty-check">
+                                <label for="exact" class="for-iCheck">Acertar resultado exacto</label>
+                            </div>
+                            <button class="btn btn-info btn-save" type="submit" data-loading-text="Creando...">Crear Torneo</button>
+                        </form>
+                    </section>
+
+                    <h2>Invitar Amigos</h2>
+                    <section>
+                        <p>Fake friends invitation.</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

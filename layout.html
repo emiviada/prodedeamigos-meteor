@@ -12,7 +12,29 @@
             <!-- TITLE -->
             {{> pageTitle}}
 
+            <!-- BREADCRUMB -->
+            {{> breadcrumb}}
+
             {{> yield}}
+
+        <!-- FOOTER -->
+        <div class="footer-space"></div>
+        <div id="footer">
+            <div class="devider-footer-left"></div>
+            <div class="time">
+                <p id="spanDate"></p>
+                <p id="clock"></p>
+            </div>
+            <div class="copyright">
+                2015 prodedeamigos.com
+            </div>
+            <div class="devider-footer"></div>
+            <ul>
+                <li><i class="fa fa-facebook"></i></li>
+                <li><i class="fa fa-twitter"></i></li>
+            </ul>
+        </div>
+        <!-- / END OF FOOTER -->
 
         </div>
     </div>

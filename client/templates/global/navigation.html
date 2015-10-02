@@ -141,7 +141,8 @@
                 <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
                     <li class="mrl">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" class="admin-pic img-circle" src="http://api.randomuser.me/portraits/thumb/men/10.jpg">Hola, {{username}} <b class="caret"></b>
+                            <img alt="" class="admin-pic img-circle" src="{{getProfilePicture currentUser}}">
+                            Hola, {{userFullname}} <b class="caret"></b>
                         </a>
                         <ul style="margin-top:5px !important;" role="menu" class="dropdown-setting dropdown-menu">
                             <li>
@@ -155,7 +156,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#" class="logout"><span class="entypo-logout"></span>&#160;&#160;Logout</a>
+                                <a href="#" class="logout"><span class="entypo-logout"></span>&#160;&#160;Desconectar</a>
                             </li>
                         </ul>
                     </li>

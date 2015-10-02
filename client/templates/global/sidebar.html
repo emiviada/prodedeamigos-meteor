@@ -16,7 +16,7 @@
         <div class="dark">
             <form action="#">
                 <span>
-                    <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..." autofocus />
+                    <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..."/>
                 </span>
             </form>
         </div>
@@ -31,17 +31,16 @@
                 <div class="side-bar">
                     <ul class="topnav menu-left-nest">
                         <li>
-                            <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
-                                <span class="widget-menu"></span>
-                                <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+                            <a href="#" style="border-left:0px solid!important;" class="title-menu-left no-cursor">
+                                <span class="widget-tournaments"></span>
                             </a>
                         </li>
                         <li>
-                            <a class="tooltip-tip ajax-load" href="#" title="Blog App">
-                                <i class="icon-document-edit"></i>
-                                <span>Blog App</span>
+                            <a class="tooltip-tip ajax-load" href="#" title="Participando En:">
+                                <i class="icon-view-list"></i>
+                                <span>Participando En:</span>
                             </a>
-                            <ul>
+                            <!--<ul>
                                 <li>
                                     <a class="tooltip-tip2 ajax-load" href="blog-list.html" title="Blog List">
                                     	<i class="entypo-doc-text"></i><span>Blog List</span>
@@ -52,18 +51,18 @@
                                     	<i class="entypo-newspaper"></i><span>Blog Details</span>
                                 	</a>
                                 </li>
-                            </ul>
+                            </ul>-->
                         </li>
                         <li>
-                            <a class="tooltip-tip ajax-load" href="social.html" title="Social">
-                                <i class="icon-feed"></i>
-                                <span>Social</span>
+                            <a class="tooltip-tip ajax-load" href="#" title="Mis Torneos">
+                                <i class="fontawesome-th-large"></i>
+                                <span>Mis Torneos</span>
                             </a>
                         </li>
                         <li>
-                            <a class="tooltip-tip ajax-load" href="media.html" title="Media">
-                                <i class="icon-camera"></i>
-                                <span>Media</span>
+                            <a class="tooltip-tip ajax-load" href="{{pathFor 'createTournament'}}" title="Crear Torneo">
+                                <i class="icon-plus"></i>
+                                <span>Crear Torneo</span>
                             </a>
                         </li>
                     </ul>

@@ -972,6 +972,8 @@ ul.topnav h4 {
     float: right;
     margin-right: 10px;
 }
+.no-cursor { cursor: normal; }
+.widget-tournaments:before { content: "Torneos" !important; }
 /*** END Sidebar ***/
 
 /*** PAPER FLOAD ***/
@@ -985,8 +987,7 @@ ul.topnav h4 {
     background-position: bottom left, top left, top right, bottom right;
     background-size: 50% 50%;
     background-repeat: no-repeat;
-    padding: 20px;
-    min-height: 1430px;
+    padding: 20px 20px 100px;
 }
 .paper-wrap:before {
     content:"";
@@ -1056,7 +1057,1035 @@ ul.topnav h4 {
 .tittle-alert {
     color:#4AC4BC;
 }
+.nest {
+    background: none repeat scroll 0 0 #fff;
+    clear: both;
+    position: relative;
+    border-radius: 3px;
+}
+.nest .title {
+    height: 50px;
+    background-color: #595F69;
+    border-radius: 4px 4px 0 0;
+}
+.nest .title h6 {
+    color: #F1F1F1;
+    float: left;
+    font-family:'Open Sans Condensed', serif;
+    font-size: 20px;
+    font-weight: normal;
+    padding: 0 12px;
+    position: relative;
+    text-transform: uppercase;
+    top: 4px;
+}
+.nest .title .titleIcon {
+    background: none repeat scroll 0 0 #323a45;
+    border-radius: 3px 0 0 0;
+    color: #fff;
+    float: left;
+    font-size: 18px;
+    height: 30px;
+    margin: 0;
+    padding: 13px 12px 7px 18px;
+    width: 21px;
+}
+.nest .title .titleToggle {
+    border-radius: 3px 0 0;
+    float: right;
+    font-size: 24px;
+    margin: 14px 5px 0 0;
+}
+.nest .title .titleClose {
+    border-radius: 3px 0 0;
+    float: right;
+    font-size: 24px;
+    margin: 14px 12px 0 0;
+}
+ .nest .title-alt {
+    border-radius: 4px 4px 0 0;
+    height: 50px;
+    margin: 30px auto 0;
+    border-bottom: 1px dotted #DDDDDD;
+}
+.nest .title-alt h6 {
+    color: #9EA7B3;
+    float: left;
+    font-family:'Open Sans', serif;
+    font-size: 14px;
+    font-weight: normal;
+    left: 15px;
+    padding: 0 5px 2px;
+    position: relative;
+    text-transform: uppercase;
+    top: 6px;
+}
+.nest .title-alt .titleIcon {
+    background: none repeat scroll 0 0 #323a45;
+    border-radius: 3px 0 0 0;
+    color: #9EA7B3;
+    float: left;
+    font-size: 18px;
+    height: 30px;
+    margin: 0;
+    padding: 13px 12px 7px 18px;
+    width: 21px;
+}
+.nest .title-alt .titleToggle {
+    border-radius: 3px 0 0;
+    float: right;
+    margin: 14px 10px 0 0;
+}
+.nest .title-alt .titleToggle .nav-toggle-alt {
+    color: #DDDDDD;
+    font-size: 16px;
+    position: relative;
+}
+.nest .title-alt .titleToggle .nav-toggle-alt:hover {
+    color: #3498DB;
+}
+.nest .title-alt .titleClose {
+    border-radius: 3px 0 0;
+    float: right;
+    margin: 14px 15px 0 0;
+}
+.nest .title-alt .titleClose .gone {
+    color: #DDDDDD;
+    font-size: 16px;
+    position: relative;
+}
+.nest .title-alt .titleClose .gone:hover {
+    color: #FF0064;
+}
+.nest .title-alt .titleFull {
+    border-radius: 3px 0 0;
+    float: right;
+    font-size: 24px;
+    margin: 14px 12px 0 0;
+    display: none;
+}
+.nest .title-alt .titleFull .fullexe {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #DDDDDD;
+    font-size: 19px;
+    padding: 0;
+    position: relative;
+    right: -5px;
+    top: 0;
+}
+.nest .title-alt .titleFull .fullexe:hover {
+    color: #6ADAE4;
+}
+.gone {
+    color: rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+.gone:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+.body-nest {
+    padding: 15px;
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 0 0 4px 4px;
+}
+.help-block { color: #a9a9a9; }
 /*** END PAPER FLOAD ***/
+
+/*** BREADCRUMB ***/
+.wrap-pagination {
+    height: 50px;
+    background: #ffffff;
+    width: 100%;
+    position: fixed;
+    top: 61px;
+}
+.breadcrumb {
+    background-color: #F5F5F5 !important;
+    border-radius: 0 !important;
+    list-style: none outside none !important;
+    margin: 0 0 0 15px !important;
+    padding: 0 !important;
+    z-index: 99;
+}
+.breadcrumb li {
+    display: inline-block;
+    text-shadow: none!important;
+}
+.breadcrumb li a {
+    color: #9EA7B3 !important;
+    font-size: 13px;
+    transition: all 0.4s ease 0s;
+}
+.breadcrumb li a:hover {
+    color: #6ADAE4 !important;
+    text-decoration: none;
+}
+#breadcrumb {
+    border-bottom:1px solid rgba(0, 0, 0, 0.04);
+    margin: 0;
+    overflow: hidden;
+    padding: 15px 0 5px 20px;
+    width: 100%;
+    background:none repeat scroll 0 0 rgba(0, 0, 0, 0.02);
+}
+#breadcrumb li {
+    list-style-type:none;
+    float:left;
+    padding-left:10px;
+}
+#breadcrumb a {
+    height:30px;
+    display:block;
+    background-image:url('');
+    background-repeat:no-repeat;
+    background-position:right;
+    padding-right: 0;
+    text-decoration: none;
+    color:#9EA7B3;
+}
+/*** END BREADCRUMB ***/
+
+/*** FOOTER ***/
+ .wrap-footer {
+    margin-top: 60px;
+}
+.footer-space {
+    height: 60px;
+    width: 100%;
+}
+#footer {
+    background: none repeat scroll 0 0 #f8f8f8;
+    border-top: 1px solid #DDDDDD;
+    bottom: 0;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+#footer ul {
+    float: right;
+    margin: 5px 15px;
+    text-decoration: none;
+}
+#footer ul li {
+    color: #555555;
+    display: inline-block;
+    font-size: 14px !important;
+    padding: 0 6px;
+    text-decoration: none;
+}
+.copyright {
+    bottom: 0;
+    color: #666666;
+    float: right;
+    font-size: 12px !important;
+    padding: 5px 15px;
+    position: relative;
+}
+.devider-footer {
+    border-left: 1px solid #DDDDDD;
+    float: right;
+    height: 50px;
+    margin-top: -10px;
+    width: 4px;
+}
+.devider-left {
+    border-left: 1px solid #DDDDDD;
+    float: left;
+    height: 50px;
+    width: 4px;
+}
+/*** END FOOTER ***/
+
+/*** WIZARD ***/
+.wizard,
+.tabcontrol
+{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+.wizard a,
+.tabcontrol a { outline: 0; }
+.wizard ul,
+.tabcontrol ul
+{
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+}
+.wizard ul > li,
+.tabcontrol ul > li
+{
+    display: block;
+    padding: 0;
+}
+/* Accessibility */
+.wizard > .steps .current-info,
+.tabcontrol > .steps .current-info {
+    position: absolute;
+    left: -999em;
+}
+.wizard > .content > .title,
+.tabcontrol > .content > .title {
+    position: absolute;
+    left: -999em;
+}
+.wizard > .steps {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.wizard.vertical > .steps {
+    display: inline;
+    float: left;
+    width: 30%;
+}
+.wizard > .steps .number { font-size: 1.429em; }
+.wizard > .steps > ul > li { width: 25%; }
+.wizard > .steps > ul > li,
+.wizard > .actions > ul > li  { float: left; }
+.wizard.vertical > .steps > ul > li {
+    float: none;
+    width: 100%;
+}
+.wizard > .steps a,
+.wizard > .steps a:hover,
+.wizard > .steps a:active {
+    display: block;
+    width: auto;
+    margin: 0 0.5em 0.5em;
+    padding: 1em 1em;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.wizard > .steps .disabled a,
+.wizard > .steps .disabled a:hover,
+.wizard > .steps .disabled a:active {
+    background: #eee;
+    color: #aaa;
+    cursor: default;
+}
+.wizard > .steps .current a,
+.wizard > .steps .current a:hover,
+.wizard > .steps .current a:active {
+    background: #2184be;
+    color: #fff;
+    cursor: default;
+}
+.wizard > .steps .done a,
+.wizard > .steps .done a:hover,
+.wizard > .steps .done a:active {
+    background: #9dc8e2;
+    color: #fff;
+}
+.wizard > .steps .error a,
+.wizard > .steps .error a:hover,
+.wizard > .steps .error a:active {
+    background: #ff3111;
+    color: #fff;
+}
+.wizard > .content {
+    background: #f9f9f9;
+    display: block;
+    margin: 0.5em;
+    min-height: 350px;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.wizard.vertical > .content {
+    display: inline;
+    float: left;
+    margin: 0 2.5% 0.5em 2.5%;
+    width: 65%;
+}
+.wizard > .content > .body {
+    float: left;
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    padding: 2.5%;
+}
+.wizard > .content > .body ul { list-style: disc !important; }
+.wizard > .content > .body ul > li { display: list-item; }
+.wizard > .content > .body > iframe {
+    border: 0 none;
+    width: 100%;
+    height: 100%;
+}
+.wizard > .content > .body input {
+    display: block;
+    border: 1px solid #ccc;
+}
+.wizard > .content > .body input[type="checkbox"] { display: inline-block; }
+.wizard > .content > .body input.error {
+    background: rgb(251, 227, 228);
+    border: 1px solid #fbc2c4;
+    color: #8a1f11;
+}
+.wizard > .content > .body label {
+    display: inline-block;
+    margin-bottom: 0.5em;
+}
+.wizard > .content > .body label.error {
+    color: #8a1f11;
+    display: inline-block;
+    margin-left: 1.5em;
+}
+.wizard > .actions {
+    position: relative;
+    display: block;
+    text-align: right;
+    width: 100%;
+}
+.wizard.vertical > .actions {
+    display: inline;
+    float: right;
+    margin: 0 2.5%;
+    width: 95%;
+}
+.wizard > .actions > ul {
+    display: inline-block;
+    text-align: right;
+}
+.wizard > .actions > ul > li { margin: 0 0.5em; }
+.wizard.vertical > .actions > ul > li { margin: 0 0 0 1em; }
+.wizard > .actions a,
+.wizard > .actions a:hover,
+.wizard > .actions a:active {
+    background: #2184be;
+    color: #fff;
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.wizard > .actions .disabled a,
+.wizard > .actions .disabled a:hover,
+.wizard > .actions .disabled a:active {
+    background: #eee;
+    color: #aaa;
+}
+.tabcontrol > .steps {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-radius: 4px 4px 0 0;
+    display: block;
+    position: relative;
+    width: 100%;
+}
+.tabcontrol > .steps > ul {
+    position: relative;
+    margin: 6px 0 0 0;
+    top: 1px;
+    z-index: 1;
+}
+.tabcontrol > .steps > ul > li {
+    float: left;
+    margin: 5px 2px 0 0;
+    padding: 1px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.tabcontrol > .steps > ul > li:hover {
+    background: #edecec;
+    border: 1px solid #bbb;
+    padding: 0;
+}
+.tabcontrol > .steps > ul > li.current {
+    background: #fff;
+    border: 1px solid #bbb;
+    border-bottom: 0 none;
+    padding: 0 0 1px 0;
+    margin-top: 0;
+}
+.tabcontrol > .steps > ul > li > a {
+    color: #5f5f5f;
+    display: inline-block;
+    border: 0 none;
+    margin: 0;
+    padding: 10px 30px;
+    text-decoration: none;
+}
+.tabcontrol > .steps > ul > li > a:hover { text-decoration: none; }
+.tabcontrol > .steps > ul > li.current > a { padding: 15px 30px 10px 30px; }
+.tabcontrol > .content {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 35em;
+    overflow: hidden;
+    border-top: 1px solid #bbb;
+    padding-top: 20px;
+}
+.tabcontrol > .content > .body {
+    float: left;
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    padding: 2.5%;
+}
+.tabcontrol > .content > .body ul { list-style: disc !important; }
+.tabcontrol > .content > .body ul > li { display: list-item; }
+/*** END WIZARD ***/
+
+/* iCheck plugin Flat skin, red
+----------------------------------- */
+.icheckbox_flat,
+.iradio_flat {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(/images/flat.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_flat {
+    background-position: 0 0;
+}
+    .icheckbox_flat.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_flat.disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .icheckbox_flat.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_flat {
+    background-position: -88px 0;
+}
+    .iradio_flat.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_flat.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_flat,
+    .iradio_flat {
+        background-image: url(/images/flat@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
+
+/* red */
+.icheckbox_flat-red,
+.iradio_flat-red {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(/images/red.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_flat-red {
+    background-position: 0 0;
+}
+    .icheckbox_flat-red.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_flat-red.disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .icheckbox_flat-red.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_flat-red {
+    background-position: -88px 0;
+}
+    .iradio_flat-red.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat-red.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_flat-red.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_flat-red,
+    .iradio_flat-red {
+        background-image: url(/images/red@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
+
+/* green */
+.icheckbox_flat-green,
+.iradio_flat-green {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(green.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_flat-green {
+    background-position: 0 0;
+}
+    .icheckbox_flat-green.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_flat-green.disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .icheckbox_flat-green.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_flat-green {
+    background-position: -88px 0;
+}
+    .iradio_flat-green.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat-green.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_flat-green.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_flat-green,
+    .iradio_flat-green {
+        background-image: url(green@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
+
+/* blue */
+.icheckbox_flat-blue,
+.iradio_flat-blue {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(/images/blue.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+label.for-iCheck {
+    padding-left: 5px;
+    position: relative;
+    top:-5px;
+}
+.icheckbox_flat-blue {
+    background-position: 0 0;
+}
+.icheckbox_flat-blue.checked {
+    background-position: -22px 0;
+}
+.icheckbox_flat-blue.disabled {
+    background-position: -44px 0;
+    cursor: default;
+}
+.icheckbox_flat-blue.checked.disabled {
+    background-position: -66px 0;
+}
+
+.iradio_flat-blue {
+    background-position: -88px 0;
+}
+    .iradio_flat-blue.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat-blue.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_flat-blue.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_flat-blue,
+    .iradio_flat-blue {
+        background-image: url(/images/blue@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
+
+/* aero */
+.icheckbox_flat-aero,
+.iradio_flat-aero {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(aero.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_flat-aero {
+    background-position: 0 0;
+}
+    .icheckbox_flat-aero.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_flat-aero.disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .icheckbox_flat-aero.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_flat-aero {
+    background-position: -88px 0;
+}
+    .iradio_flat-aero.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat-aero.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_flat-aero.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_flat-aero,
+    .iradio_flat-aero {
+        background-image: url(aero@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
+
+/* grey */
+.icheckbox_flat-grey,
+.iradio_flat-grey {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(grey.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_flat-grey {
+    background-position: 0 0;
+}
+    .icheckbox_flat-grey.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_flat-grey.disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .icheckbox_flat-grey.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_flat-grey {
+    background-position: -88px 0;
+}
+    .iradio_flat-grey.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat-grey.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_flat-grey.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_flat-grey,
+    .iradio_flat-grey {
+        background-image: url(grey@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
+
+/* orange */
+.icheckbox_flat-orange,
+.iradio_flat-orange {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(orange.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_flat-orange {
+    background-position: 0 0;
+}
+    .icheckbox_flat-orange.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_flat-orange.disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .icheckbox_flat-orange.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_flat-orange {
+    background-position: -88px 0;
+}
+    .iradio_flat-orange.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat-orange.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_flat-orange.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_flat-orange,
+    .iradio_flat-orange {
+        background-image: url(orange@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
+
+/* yellow */
+.icheckbox_flat-yellow,
+.iradio_flat-yellow {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(yellow.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_flat-yellow {
+    background-position: 0 0;
+}
+    .icheckbox_flat-yellow.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_flat-yellow.disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .icheckbox_flat-yellow.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_flat-yellow {
+    background-position: -88px 0;
+}
+    .iradio_flat-yellow.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat-yellow.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_flat-yellow.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_flat-yellow,
+    .iradio_flat-yellow {
+        background-image: url(yellow@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
+
+/* pink */
+.icheckbox_flat-pink,
+.iradio_flat-pink {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(pink.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_flat-pink {
+    background-position: 0 0;
+}
+    .icheckbox_flat-pink.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_flat-pink.disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .icheckbox_flat-pink.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_flat-pink {
+    background-position: -88px 0;
+}
+    .iradio_flat-pink.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat-pink.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_flat-pink.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_flat-pink,
+    .iradio_flat-pink {
+        background-image: url(pink@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
+
+/* purple */
+.icheckbox_flat-purple,
+.iradio_flat-purple {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(purple.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_flat-purple {
+    background-position: 0 0;
+}
+    .icheckbox_flat-purple.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_flat-purple.disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .icheckbox_flat-purple.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_flat-purple {
+    background-position: -88px 0;
+}
+    .iradio_flat-purple.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat-purple.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_flat-purple.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_flat-purple,
+    .iradio_flat-purple {
+        background-image: url(purple@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
+/* END iCheck plugin Flat skin, red
+----------------------------------- */
 
 /*** Margins & Paddings ***/
 .mrl, .mal { margin-right: 20px !important; }
