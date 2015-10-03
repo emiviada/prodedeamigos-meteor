@@ -35,30 +35,40 @@
                                 <span class="widget-tournaments"></span>
                             </a>
                         </li>
-                        <li>
-                            <a class="tooltip-tip ajax-load" href="#" title="Participando En:">
-                                <i class="icon-view-list"></i>
-                                <span>Participando En:</span>
-                            </a>
-                            <!--<ul>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="blog-list.html" title="Blog List">
-                                    	<i class="entypo-doc-text"></i><span>Blog List</span>
-                                	</a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="blog-detail.html" title="Blog Detail">
-                                    	<i class="entypo-newspaper"></i><span>Blog Details</span>
-                                	</a>
-                                </li>
-                            </ul>-->
-                        </li>
-                        <li>
-                            <a class="tooltip-tip ajax-load" href="#" title="Mis Torneos">
-                                <i class="fontawesome-th-large"></i>
-                                <span>Mis Torneos</span>
-                            </a>
-                        </li>
+                        {{#with tournaments}}
+                            <li>
+                                <a class="tooltip-tip ajax-load" href="#" title="Participando En:">
+                                    <i class="icon-view-list"></i>
+                                    <span>Participando En:</span>
+                                </a>
+                                <ul>
+                                    {{#each tournaments}}
+                                        <li>
+                                            <a class="tooltip-tip2 ajax-load" href="#" title="{{name}}">
+                                            	<i class="entypo-doc-text"></i><span>{{name}}</span>
+                                        	</a>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        {{/with}}
+                        {{#with myTournaments}}
+                            <li>
+                                <a class="tooltip-tip ajax-load" href="#" title="Mis Torneos">
+                                    <i class="fontawesome-th-large"></i>
+                                    <span>Mis Torneos</span>
+                                </a>
+                                <ul>
+                                    {{#each myTournaments}}
+                                        <li>
+                                            <a class="tooltip-tip2 ajax-load" href="{{pathFor 'editTournament' slug=slug}}" title="{{name}}">
+                                                <i class="entypo-doc-text"></i><span>{{name}}</span>
+                                            </a>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        {{/with}}
                         <li>
                             <a class="tooltip-tip ajax-load" href="{{pathFor 'createTournament'}}" title="Crear Torneo">
                                 <i class="icon-plus"></i>

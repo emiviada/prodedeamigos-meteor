@@ -24,8 +24,9 @@
                                 <label for="tournament">Torneo</label>
                                 <select size="1" name="tournament" id="tournament" class="form-control" required>
                                 	<option value="">Elige un torneo</option>
-                                	<option value="1">Fake torneo</option>
-                                	<option value="">Elige un torneo</option>
+                                	{{#each tournaments}}
+                                        <option value="{{_id}}">{{name}}</option>
+                                    {{/each}}
                                 </select>
                                 <p class="help-block">Competición en la que se basará el torneo.</p>
                             </div>

@@ -35,8 +35,22 @@ if (Meteor.isClient) {
 			    error.insertBefore(element);
 			},
 			submitHandler: function(e) {
-                console.log('Success');
-                $('.btn-save').button('reset');
+                var matchExact = $('#exact').is(':checked'),
+                    object = {
+                        tournamentId: $('#tournament').val(),
+                        name: $('#fname').val(),
+                        pointsPerGame: $('select[name="points"]').val(),
+                        matchExact: matchExact,
+                        pointsPerExact: (matchExact)? $('select[name="points-exact"]').val() : null
+                    };
+
+                Meteor.call('createFantasyTournament', object, function(error, result) {
+                    if (!error) {
+                        var ft = FantasyTournaments.findOne({_id: result});
+                        Router.go('editTournament', { slug: ft.slug }); // Redirect to just created tournament
+                        $('.btn-save').button('reset');
+                    }
+                });
             },
             invalidHandler: function(event, validator) {
                 setTimeout(function() {
@@ -55,6 +69,11 @@ if (Meteor.isClient) {
             }
         });
 	});
+    Template.createTournament.helpers({
+        'tournaments': function() {
+            return Tournaments.find({active: true});
+        }
+    });
 	Template.createTournament.events({
 		'submit form': function(e) {
             e.preventDefault();

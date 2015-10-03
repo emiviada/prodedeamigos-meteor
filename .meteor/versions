@@ -59,6 +59,7 @@ less@2.5.0_3
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
+matb33:collection-hooks@0.7.15
 meteor@1.1.9
 meteor-base@1.0.1
 meteorhacks:meteorx@1.0.2
@@ -99,6 +100,7 @@ standard-minifiers@1.0.1
 templating@1.1.4
 templating-tools@1.0.0
 themeteorchef:jquery-validation@1.14.0
+todda00:friendly-slugs@0.3.4
 tracker@1.0.9
 twbs:bootstrap@3.3.5
 twitter@1.1.5

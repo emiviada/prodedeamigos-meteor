@@ -70,6 +70,7 @@ AdminConfig = {
     name: 'Prode de Amigos',
     roles: ['admin'],
     collections: {
-        Teams: {}
+        Teams: {},
+        Tournaments: {}
     }
 };

@@ -10,6 +10,16 @@ if (Meteor.isClient) {
 	    // show skin select for a second
 		setTimeout(function(){ $("#skin-select #toggle").addClass('active').trigger('click'); }, 10);
 	});
+	Template.sidebar.helpers({
+		'tournaments': function() {
+			var currentUser = Meteor.userId();
+			return FantasyTournaments.find({members: {$in: [currentUser]}});
+		},
+		'myTournaments': function() {
+			var currentUser = Meteor.userId();
+			return FantasyTournaments.find({ownerId: currentUser});
+		}
+	});
 	Template.sidebar.events({
 		'click #skin-select #toggle': function(e) {
 			var _this = $(e.currentTarget);
