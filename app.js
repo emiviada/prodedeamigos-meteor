@@ -63,6 +63,11 @@ if (Meteor.isClient) {
 
         return pic;
     });
+    // Function to check which dropdown's option is selected
+    UI.registerHelper('selected', function(a, b) {
+        var selected = (a == b)? 'selected' : '';
+        return selected;
+    });
 }
 
 /*** ADMIN ***/

@@ -1,3 +1,33 @@
 <template name="editTournament">
-	<h1>Edit Tournament</h1>
+	<div class="col-sm-12">
+        <div class="nest" id="verticalClose">
+            <div class="title-alt">
+                <h6>Editar Torneo {{name}}</h6>
+            </div>
+
+            <div class="body-nest">
+                <div id="tab_vertical" class="row">
+
+	                <ul class="nav nav-pills nav-stacked col-sm-3 pl15" role="tablist">
+	                    <li role="presentation" class="active">
+	                        <a href="#form" aria-controls="form" role="tab" data-toggle="tab">1. Editar Torneo</a>
+	                    </li>
+	                    <li role="presentation">
+	                        <a href="#invite" aria-controls="invite" role="tab" data-toggle="tab">2. Invitar Amigos</a>
+	                    </li>
+	                </ul>
+
+	                <div class="tab-content col-sm-9">
+	                    <section role="tabpanel" class="tab-pane fade in bg-form active" id="form">
+	                        {{> formTournament}}
+	                    </section>
+
+	                    <section role="tabpanel" class="tab-pane fade bg-form" id="invite">
+	                        <p>Construir invitation aqui.</p>
+	                    </section>
+	                </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>

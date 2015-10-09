@@ -25,7 +25,6 @@ alanning:roles
 twbs:bootstrap
 fortawesome:fontawesome
 less
-yogiben:admin
 ejson
 spacebars
 themeteorchef:jquery-validation
@@ -34,3 +33,4 @@ service-configuration
 accounts-twitter
 check
 todda00:friendly-slugs
+yogiben:admin

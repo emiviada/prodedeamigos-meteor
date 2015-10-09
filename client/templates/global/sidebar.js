@@ -1,5 +1,8 @@
 if (Meteor.isClient) {
 	// Template: sidebar
+	Template.sidebar.onCreated(function() {
+	  	this.subscribe('fantasyTournaments');
+	});
 	Template.sidebar.onRendered(function() {
 		$(".topnav").accordionze({
 	        accordionze: true,

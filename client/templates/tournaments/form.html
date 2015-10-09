@@ -1,0 +1,46 @@
+<template name="formTournament">
+	<form role="form" class="tournament-form {{editingClass}}">
+    	<div class="form-group">
+            <label for="tournament">Torneo</label>
+            <select size="1" name="tournament" id="tournament" class="form-control" required {{disabledMode}}>
+            	<option value="">Elige un torneo</option>
+            	{{#each tournaments}}
+                    <option value="{{_id}}" {{selected _id ../tournamentId}}>{{name}}</option>
+                {{/each}}
+            </select>
+            <p class="help-block">Competición en la que se basar&aacute; el torneo.</p>
+        </div>
+        <div class="form-group">
+            <label for="fname">Nombre</label>
+            <input type="text" name="fname" value="{{name}}" placeholder="Nombre del torneo" id="fname" class="form-control" required>
+        </div>
+        <div class="row">
+        	<div class="form-group col-sm-6">
+                <label for="points">Pts por acierto</label>
+                <select name="points" id="points" size="1" class="form-control" required>
+                	<option value="3" {{selected 3 pointsPerGame}}>3</option>
+                	<option value="4" {{selected 4 pointsPerGame}}>4</option>
+                	<option value="5" {{selected 5 pointsPerGame}}>5</option>
+                	<option value="6" {{selected 6 pointsPerGame}}>6</option>
+                	<option value="7" {{selected 7 pointsPerGame}}>7</option>
+                	<option value="8" {{selected 8 pointsPerGame}}>8</option>
+                	<option value="9" {{selected 9 pointsPerGame}}>9</option>
+                	<option value="10" {{selected 10 pointsPerGame}}>10</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-6" id="points-exact-wrapper" style="display: {{displayMatchExactDropdown}};">
+                <label for="points-exact">Pts por acierto exacto</label>
+                <select name="points-exact" id="points-exact" class="form-control" size="1">
+                	<option value="1">1</option>
+                	<option value="2">2</option>
+                	<option value="3">3</option>
+                </select>
+            </div>
+        </div>
+        <div class="checkbox">
+            <input type="checkbox" id="exact" class="pretty-check" checked="{{matchExact}}" {{checked}}>
+            <label for="exact" class="for-iCheck">Acertar resultado exacto</label>
+        </div>
+        <button class="btn btn-info btn-save" type="submit" data-loading-text="{{btnLoadingText}}">{{btnLabel}}</button>
+    </form>
+</template>
