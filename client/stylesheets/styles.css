@@ -1537,8 +1537,8 @@ ul.topnav h4 {
 }
 .tabcontrol > .content > .body ul { list-style: disc !important; }
 .tabcontrol > .content > .body ul > li { display: list-item; }*/
-.nav > li:not(.disabled) > a:hover,
-.nav > li:not(.disabled) > a:focus { background-color: #337ab7 !important; }
+.nav.nav-stacked > li:not(.disabled) > a:hover,
+.nav.nav-stacked > li:not(.disabled) > a:focus { background-color: #337ab7 !important; }
 .bg-form {
     background-color: #f9f9f9;
     padding: 10px;

@@ -34,8 +34,19 @@ if (Meteor.isClient) {
                         pointsPerExact: (matchExact)? $('select[name="points-exact"]').val() : null
                     };
 
+                // Edit
                 if (form.hasClass('edit')) {
-                    Meteor.call('editFantasyTournament');
+                    var _id = form.data('ftid');
+                    // In edit mode, remove tournamentId property
+                    delete object.tournamentId;
+                    Meteor.call('editFantasyTournament', _id, object, function(error, result) {
+                        if (!error) {
+                            var ft = FantasyTournaments.findOne({_id: _id});
+                            Router.go('editTournament', { slug: ft.slug });
+                            $('.btn-save').button('reset');
+                        }
+                    });
+                // Create
                 } else {
                     Meteor.call('createFantasyTournament', object, function(error, result) {
                         if (!error) {

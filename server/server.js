@@ -23,9 +23,11 @@ if (Meteor.isServer) {
 
     // Methods
     Meteor.methods({
+    	// FantasyTournaments methods
     	'createFantasyTournament': function(object) {
             var currentUser = Meteor.userId();
             if (currentUser) {
+
                 check(object.name, String);
                 object.ownerId = currentUser;
                 object.members = [currentUser]; // Join the owner to this
@@ -33,6 +35,31 @@ if (Meteor.isServer) {
                 object.updatedAt = new Date();
 
                 return FantasyTournaments.insert(object);
+
+            } else {
+                throw new Meteor.Error("not-logged-in", "You're not logged-in.");
+            }
+        },
+        'editFantasyTournament': function(id, object) {
+        	var currentUser = Meteor.userId();
+            if (currentUser) {
+
+                check(object.name, String);
+                object.updatedAt = new Date();
+                FantasyTournaments.update({_id: id, ownerId: currentUser}, {$set: object});
+
+                return id;
+
+            } else {
+                throw new Meteor.Error("not-logged-in", "You're not logged-in.");
+            }
+        },
+        'removeFantasyTournament': function(id) {
+        	var currentUser = Meteor.userId();
+            if (currentUser) {
+
+                return FantasyTournaments.remove({_id: id, ownerId: currentUser});
+
             } else {
                 throw new Meteor.Error("not-logged-in", "You're not logged-in.");
             }
