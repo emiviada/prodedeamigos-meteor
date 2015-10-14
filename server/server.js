@@ -8,9 +8,9 @@ if (Meteor.isServer) {
 	  	return Meteor.users.find({}, {fields: {'services': 1}});
 	});
 
-  	/*Meteor.publish('teams', function() {
+  	Meteor.publish('teams', function() {
         return Teams.find();
-    });*/
+    });
 
     Meteor.publish('tournaments', function() {
         return Tournaments.find();
@@ -20,6 +20,25 @@ if (Meteor.isServer) {
         var currentUser = this.userId;
         return FantasyTournaments.find({members: {$in: [currentUser]}});
     });
+
+    Meteor.publish('images', function() {
+        return Images.find();
+    });
+
+    Images.allow({
+		'insert': function () {
+		    // add custom authentication code here
+		    return true;
+		},
+		'update': function () {
+		    // add custom authentication code here
+		    return true;
+		},
+		'download': function () {
+		    // add custom authentication code here
+		    return true;
+		}
+	});
 
     // Methods
     Meteor.methods({

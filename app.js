@@ -75,7 +75,39 @@ AdminConfig = {
     name: 'Prode de Amigos',
     roles: ['admin'],
     collections: {
-        Teams: {},
-        Tournaments: {}
+        Teams: {
+            icon: 'futbol-o',
+            color: 'green',
+            tableColumns: [
+                { label: 'Name', name: 'name' }
+            ],
+            routes: {
+                'new': {
+                    waitOn: function () { return Meteor.subscribe('images'); }
+                },
+                'view': {
+                    waitOn: function () { return Meteor.subscribe('images'); }
+                },
+                'edit': {
+                    waitOn: function () { return Meteor.subscribe('images'); }
+                }
+            }
+        },
+        Tournaments: {
+            icon: 'trophy',
+            color: 'yellow',
+            tableColumns: [
+                { label: 'Name', name: 'name' },
+                { label: 'Active', name: 'active' }
+            ],
+            routes: {
+                'new': {
+                    waitOn: function () { return Meteor.subscribe('teams'); }
+                },
+                'edit': {
+                    waitOn: function () { return Meteor.subscribe('teams'); }
+                }
+            }
+        }
     }
 };
