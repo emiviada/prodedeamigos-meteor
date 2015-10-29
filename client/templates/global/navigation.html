@@ -141,8 +141,8 @@
                 <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
                     <li class="mrl">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" class="admin-pic img-circle" src="{{getProfilePicture currentUser}}">
-                            Hola, {{userFullname}} <b class="caret"></b>
+                            <img alt="" class="admin-pic img-circle" src="{{ currentUser.getProfilePicture }}">
+                            Hola, {{ currentUser.getFullName }} <b class="caret"></b>
                         </a>
                         <ul style="margin-top:5px !important;" role="menu" class="dropdown-setting dropdown-menu">
                             <li>

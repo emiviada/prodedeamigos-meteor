@@ -21,6 +21,10 @@ if (Meteor.isServer) {
         return FantasyTournaments.find({members: {$in: [currentUser]}});
     });
 
+    Meteor.publish('games', function() {
+        return Games.find();
+    });
+
     Meteor.publish('images', function() {
         return Images.find();
     });

@@ -41,3 +41,6 @@ cfs:autoform
 natestrauser:select2
 zimme:select2-bootstrap3-css
 aldeed:autoform-select2
+tsega:bootstrap3-datetimepicker@=3.1.3_3
+mrt:moment-timezone
+aldeed:autoform-bs-datetimepicker
