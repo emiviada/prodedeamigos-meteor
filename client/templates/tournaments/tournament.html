@@ -1,0 +1,68 @@
+<template name="tournament">
+	<!-- Positions -->
+	<div class="col-sm-6">
+        <div class="nest" id="tableStaticClose">
+            <div class="title-alt">
+                <h6>{{name}} Posiciones</h6>
+                <div class="titleToggle">
+                    <a class="nav-toggle-alt" href="#tableStatic">
+                        <span class="entypo-up-open"></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="body-nest" id="tableStatic">
+                <section id="flip-scroll">
+                    <table class="table table-striped cf">
+                        <thead class="cf">
+                            <tr>
+                                <th>Pos.</th>
+                                <th>Usuario</th>
+                                <th class="numeric">Ac.</th>
+                                <th class="numeric">Ac.E.</th>
+                                <th class="numeric">Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.</td>
+                                <td>
+                                	<img alt="" class="admin-pic table-position img-circle" src="{{ currentUser.getProfilePicture }}">
+                            		{{ currentUser.getFullName }}
+                                </td>
+                                <td class="numeric">2</td>
+                                <td class="numeric">1</td>
+                                <td class="numeric">10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+    	<div class="nest" id="tableStaticClose">
+            <div class="title-alt">
+                <h6>{{name}} Partidos</h6>
+                <div class="titleToggle">
+                    <a class="nav-toggle-alt" href="#tableStaticGames">
+                        <span class="entypo-up-open"></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="body-nest" id="tableStaticGames">
+                <ul class="games">
+                    {{#each games }}
+	                    <li class="row">
+	                    	{{> game}}
+	                    </li>
+                    {{else}}
+                    	<li>No hay partidos.</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>

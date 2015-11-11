@@ -61,6 +61,7 @@ facebook@1.2.2
 fastclick@1.0.7
 fortawesome:fontawesome@4.4.0
 geojson-utils@1.0.4
+hilios:jquery.countdown@2.0.4
 hot-code-push@1.0.0
 html-tools@1.0.5
 htmljs@1.0.5

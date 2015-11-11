@@ -25,6 +25,11 @@ if (Meteor.isServer) {
         return Games.find();
     });
 
+    Meteor.publish('predictions', function() {
+		var currentUser = this.userId;
+    	return Predictions.find({userId: currentUser});
+    });
+
     Meteor.publish('images', function() {
         return Images.find();
     });
@@ -83,6 +88,28 @@ if (Meteor.isServer) {
 
                 return FantasyTournaments.remove({_id: id, ownerId: currentUser});
 
+            } else {
+                throw new Meteor.Error("not-logged-in", "You're not logged-in.");
+            }
+        },
+        // Prediction methods
+        'createPrediction': function(object) {
+        	return Meteor.call('savePrediction', object, 'create');
+        },
+        'editPrediction': function(object) {
+        	return Meteor.call('savePrediction', object, 'edit');
+        },
+        'savePrediction': function(object, mode) {
+        	var currentUser = Meteor.userId();
+            if (currentUser) {
+                if (mode === 'create') {
+                	object.createdAt = new Date();
+                	object.updatedAt = new Date();
+                	return Predictions.insert(object);
+                } else if (mode === 'edit') {
+                	object.updatedAt = new Date();
+                	return Predictions.update({_id: object._id}, {$set: object});
+                }
             } else {
                 throw new Meteor.Error("not-logged-in", "You're not logged-in.");
             }

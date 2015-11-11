@@ -43,7 +43,7 @@
                             <ul>
                                 {{#each tournaments}}
                                     <li>
-                                        <a class="tooltip-tip2 ajax-load" href="#" title="{{name}}">
+                                        <a class="tooltip-tip2 ajax-load" href="{{pathFor 'seeTournament' slug=slug}}" title="{{name}}">
                                         	<i class="entypo-doc-text"></i><span>{{name}}</span>
                                     	</a>
                                     </li>

@@ -38,4 +38,13 @@ if (Meteor.isClient) {
         var selected = (a == b)? 'selected' : '';
         return selected;
     });
+
+    // Function to format date with momentJS
+    UI.registerHelper('formatDate', function(date, format) {
+        var r = null;
+        if (date && format) {
+            r = moment(date).format(format);
+        }
+        return r;
+    });
 }
