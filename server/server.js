@@ -18,7 +18,7 @@ if (Meteor.isServer) {
 
     Meteor.publish('fantasyTournaments', function() {
         var currentUser = this.userId;
-        return FantasyTournaments.find({members: {$in: [currentUser]}});
+        return FantasyTournaments.find({'members.userId': currentUser});
     });
 
     Meteor.publish('games', function() {
@@ -58,7 +58,7 @@ if (Meteor.isServer) {
 
                 check(object.name, String);
                 object.ownerId = currentUser;
-                object.members = [currentUser]; // Join the owner to this
+                object.members = [{userId: currentUser, hits: 0, hitsExact: 0, points: 0}]; // Join the owner to this
                 object.createdAt = new Date();
                 object.updatedAt = new Date();
 
@@ -103,6 +103,8 @@ if (Meteor.isServer) {
         	var currentUser = Meteor.userId();
             if (currentUser) {
                 if (mode === 'create') {
+                	object.hit = false;
+                	object.hitExact = false;
                 	object.createdAt = new Date();
                 	object.updatedAt = new Date();
                 	return Predictions.insert(object);
@@ -115,4 +117,66 @@ if (Meteor.isServer) {
             }
         }
     });
+
+    // Hooks
+    // After a game's finished, calculate points
+    Games.after.update(function (userId, doc, fieldNames, modifier, options) {
+		if (doc.finished && !this.previous.finished) {
+			var fts = FantasyTournaments.find({tournamentId: doc.tournamentId}),
+				predictions = Predictions.find({gameId: doc._id}),
+				setObj, inc = [], inc2 = [];
+			if (fts.count() && predictions.count()) {
+				fts.map(function(ft) { // Walk through every fantasy tournament
+					predictions.map(function (prediction) { // Walk through every prediction
+						setObj = {hit: false, hitExact: false};
+						if (!inc[prediction.userId]) {
+							inc[prediction.userId] = 0;
+						}
+						if (!inc2[prediction.userId]) {
+							inc2[prediction.userId] = 0;
+						}
+
+						if (doc.goalsHome === prediction.goalsHome && doc.goalsAway === prediction.goalsAway) {
+							setObj.hit = true;
+							setObj.hitExact = true;
+							inc[prediction.userId]++;
+							inc2[prediction.userId]++;
+						} else if (doc.goalsHome > doc.goalsAway && prediction.goalsHome > prediction.goalsAway) {
+							setObj.hit = true;
+							inc[prediction.userId]++;
+						} else if (doc.goalsHome == doc.goalsAway && prediction.goalsHome == prediction.goalsAway) {
+							setObj.hit = true;
+							inc[prediction.userId]++;
+						} else if (doc.goalsHome < doc.goalsAway && prediction.goalsHome < prediction.goalsAway) {
+							setObj.hit = true;
+							inc[prediction.userId]++;
+						}
+
+						// Update the prediction
+						Predictions.update({_id: prediction._id}, {$set: setObj});
+					});
+
+					// Update each tournament's user
+					var points;
+					ft.members.forEach(function(member) {
+						points = 0;
+						if (inc[member.userId] || inc2[member.userId]) {
+							points = inc[member.userId] * ft.pointsPerGame;
+							if (ft.matchExact) {
+								points += inc2[member.userId] * ft.pointsPerExact;
+							}
+							FantasyTournaments.update(
+								{'members.userId': member.userId},
+								{$inc: {
+									'members.$.hits': inc[member.userId],
+									'members.$.hitsExact': inc2[member.userId],
+									'members.$.points': points
+								}}
+							);
+						}
+					});
+				});
+			}
+		}
+	});
 }

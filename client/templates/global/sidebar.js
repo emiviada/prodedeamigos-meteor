@@ -16,7 +16,7 @@ if (Meteor.isClient) {
 	Template.sidebar.helpers({
 		'tournaments': function() {
 			var currentUser = Meteor.userId();
-			return FantasyTournaments.find({members: {$in: [currentUser]}});
+			return FantasyTournaments.find({'members.userId': currentUser});
 		},
 		'myTournaments': function() {
 			var currentUser = Meteor.userId();

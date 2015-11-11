@@ -24,16 +24,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td>
-                                	<img alt="" class="admin-pic table-position img-circle" src="{{ currentUser.getProfilePicture }}">
-                            		{{ currentUser.getFullName }}
-                                </td>
-                                <td class="numeric">2</td>
-                                <td class="numeric">1</td>
-                                <td class="numeric">10</td>
-                            </tr>
+                            {{#each members }}
+                                <tr>
+                                    <td>1.</td>
+                                    <td>
+                                        <img alt="" class="admin-pic table-position img-circle" src="{{ currentUser.getProfilePicture }}">
+                                        {{ userId }}
+                                    </td>
+                                    <td class="numeric">{{hits}}</td>
+                                    <td class="numeric">{{hitsExact}}</td>
+                                    <td class="numeric">{{points}}</td>
+                                </tr>
+                            {{else}}
+                                <tr><td colspan="5">No hay usuarios.</td></tr>
+                            {{/each}}
                         </tbody>
                     </table>
                 </section>

@@ -26,6 +26,9 @@ if (Meteor.isClient) {
 
     // Helpers
     Template.tournament.helpers({
+        'members': function() {
+            return this.members;
+        },
         'games': function() {
             var tournamentId = this.tournamentId,
                 fromDate = new Date().toLocaleString();
