@@ -2118,6 +2118,14 @@ label.for-iCheck {
 .team-flag.home { margin-right: 10px; }
 .team-flag.away { margin-left: 10px; }
 .goals-game { width: 37px; }
+.legend {
+    list-style: none;
+    padding-left: 10px;
+}
+.title-alt h6 a {
+    text-transform: none;
+    font-size: 12px;
+}
 
 /*** Effects & Animations ***/
 @-webkit-keyframes highlight {

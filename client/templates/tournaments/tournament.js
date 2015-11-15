@@ -1,39 +1,36 @@
 if (Meteor.isClient) {
 	// Template: tournament
 	// Events
-    Template.tournament.events({
-		'click .nav-toggle-alt': function(e) {
-            e.preventDefault();
-            //get collapse content selector
-            var _this = $(e.currentTarget),
-                collapse_content_selector = _this.attr('href');
-
-            //make the collapse content to be shown or hide
-            var toggle_switch = _this;
-            $(collapse_content_selector).slideToggle(function() {
-                if (_this.css('display') == 'block') {
-                    //change the button label to be 'Show'
-                    toggle_switch.html('<span class="entypo-up-open"></span>');
-                } else {
-                    //change the button label to be 'Hide'
-                    toggle_switch.html('<span class="entypo-down-open"></span>');
-                }
-            });
-
-            return false;
-        }
-	});
+    Template.tournament.events($.extend(Events, {}));
 
     // Helpers
     Template.tournament.helpers({
         'members': function() {
-            return this.members;
+            var members = [], membersIds = [], users, counter = 1;
+
+            this.members.forEach(function(m) {
+                membersIds.push(m.userId);
+            });
+            users = Meteor.users.find({_id: {$in: membersIds}});
+
+            this.members.forEach(function(m) {
+                users.map(function(user) {
+                    m.pos = counter++;
+                    m.user = user;
+                    members.push(m);
+                });
+            });
+
+            return members;
         },
         'games': function() {
             var tournamentId = this.tournamentId,
                 fromDate = new Date().toLocaleString();
 
             return Games.find({ tournamentId: tournamentId, playDate: {$gte: new Date(fromDate)}}, {sort: {playDate: 1}});
+        },
+        'colspan': function() {
+            return (this.matchExact)? 5 : 4;
         }
     });
 }

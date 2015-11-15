@@ -1,3 +1,7 @@
 <template name="dashboard">
-	<h1>Dashboard</h1>
+	{{#each tournaments }}
+        {{> tournamentGamesWidget}}
+    {{else}}
+    	No estas participando en ning&uacute;n torneo.
+    {{/each}}
 </template>

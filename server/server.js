@@ -179,4 +179,24 @@ if (Meteor.isServer) {
 			}
 		}
 	});
+
+	// If FantasyTournament's owner changed pointsPerGame, update members points
+	FantasyTournaments.after.update(function (userId, doc, fieldNames, modifier, options) {
+		if (doc.pointsPerGame != this.previous.pointsPerGame ||
+			(doc.matchExact && doc.pointsPerExact != this.previous.pointsPerExact)) {
+				var points;
+				doc.members.forEach(function(member) {
+					points = member.hits * doc.pointsPerGame;
+					if (doc.matchExact) {
+						points += member.hitsExact * doc.pointsPerExact;
+					}
+					FantasyTournaments.update(
+						{'members.userId': member.userId},
+						{$set: {
+							'members.$.points': points
+						}}
+					);
+				});
+		}
+	});
 }

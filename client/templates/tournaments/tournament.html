@@ -19,27 +19,38 @@
                                 <th>Pos.</th>
                                 <th>Usuario</th>
                                 <th class="numeric">Ac.</th>
-                                <th class="numeric">Ac.E.</th>
+                                {{#if matchExact}}
+                                    <th class="numeric">Ac.E.</th>
+                                {{/if}}
                                 <th class="numeric">Pts</th>
                             </tr>
                         </thead>
                         <tbody>
                             {{#each members }}
                                 <tr>
-                                    <td>1.</td>
+                                    <td>{{pos}}.</td>
                                     <td>
-                                        <img alt="" class="admin-pic table-position img-circle" src="{{ currentUser.getProfilePicture }}">
-                                        {{ userId }}
+                                        <img alt="" class="admin-pic table-position img-circle" src="{{ user.getProfilePicture }}">
+                                        {{ user.getFullName }}
                                     </td>
                                     <td class="numeric">{{hits}}</td>
-                                    <td class="numeric">{{hitsExact}}</td>
+                                    {{#if ../matchExact}}
+                                        <td class="numeric">{{hitsExact}}</td>
+                                    {{/if}}
                                     <td class="numeric">{{points}}</td>
                                 </tr>
                             {{else}}
-                                <tr><td colspan="5">No hay usuarios.</td></tr>
+                                <tr><td colspan="{{colspan}}">No hay usuarios.</td></tr>
                             {{/each}}
                         </tbody>
                     </table>
+                    <ul class="legend">
+                        <li><strong>Ac.</strong>: Aciertos</li>
+                        {{#if matchExact}}
+                            <li><strong>Ac.E.</strong>: Aciertos Exactos</li>
+                        {{/if}}
+                        <li><strong>Pts</strong>: Puntos</li>
+                    </ul>
                 </section>
             </div>
         </div>
