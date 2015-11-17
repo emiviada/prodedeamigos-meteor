@@ -46,3 +46,4 @@ mrt:moment-timezone
 aldeed:autoform-bs-datetimepicker
 reactive-var
 hilios:jquery.countdown
+mrt:flash-messages

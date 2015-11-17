@@ -44,6 +44,7 @@ if (Meteor.isClient) {
                             var ft = FantasyTournaments.findOne({_id: _id});
                             Router.go('editTournament', { slug: ft.slug });
                             $('.btn-save').button('reset');
+                            FlashMessages.sendSuccess("Torneo editado exitosamente.");
                         }
                     });
                 // Create
@@ -53,6 +54,7 @@ if (Meteor.isClient) {
                             var ft = FantasyTournaments.findOne({_id: result});
                             Router.go('editTournament', { slug: ft.slug }); // Redirect to just created tournament
                             $('.btn-save').button('reset');
+                            FlashMessages.sendSuccess("Torneo creado exitosamente. Ahora puedes invitar amigos.");
                         }
                     });
                 }

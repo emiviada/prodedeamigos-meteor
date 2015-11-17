@@ -2144,6 +2144,8 @@ label.for-iCheck {
 
 /*** Margins & Paddings ***/
 .mrl, .mal { margin-right: 20px !important; }
+.mtm, .mam { margin-top: 10px !important; }
+.mtl, .mal { margin-top: 20px !important; }
 
 .pl15, .pa15 { padding-left: 15px !important; }
 .pts, .pas { padding-top: 5px !important; }

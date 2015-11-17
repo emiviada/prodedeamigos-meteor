@@ -9,6 +9,7 @@ if (Meteor.isClient) {
                 Meteor.call('removeFantasyTournament', id, function(error) {
                 	if (!error) {
                 		Router.go('home');
+                        FlashMessages.sendInfo("El torneo ha sido eliminado exitosamente.");
                 	}
                 });
             }
