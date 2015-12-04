@@ -33,6 +33,24 @@ if (Meteor.isClient) {
         }
     });
 
+    // Added customized method in validator to validate multiple email addresses
+    $.validator.addMethod(
+        'multiemails',
+        function(value, element) {
+            if (this.optional(element)) { // return true on optional element
+                return true;
+            }
+            var emails = value.split(/[;,]+/); // split element by , and ;
+            valid = true;
+            for (var i in emails) {
+                value = emails[i];
+                valid = valid && $.validator.methods.email.call(this, $.trim(value), element);
+            }
+            return valid;
+        },
+        $.validator.messages.email
+    );
+
     // Function to check which dropdown's option is selected
     UI.registerHelper('selected', function(a, b) {
         var selected = (a == b)? 'selected' : '';

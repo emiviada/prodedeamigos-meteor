@@ -47,3 +47,6 @@ aldeed:autoform-bs-datetimepicker
 reactive-var
 hilios:jquery.countdown
 mrt:flash-messages
+random
+email
+cmather:handlebars-server

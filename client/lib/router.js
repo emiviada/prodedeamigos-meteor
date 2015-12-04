@@ -83,7 +83,11 @@ Router.route('/torneo/editar/:slug', {
         return FantasyTournaments.findOne({ slug: currentTournament, ownerId: currentUser});
     },
     waitOn: function() {
-        return [Meteor.subscribe('fantasyTournaments'), Meteor.subscribe('tournaments')];
+        return [
+            Meteor.subscribe('fantasyTournaments'),
+            Meteor.subscribe('tournaments'),
+            Meteor.subscribe('invites')
+        ];
     }
 });
 Router.route('/torneo/:slug', {
@@ -107,7 +111,7 @@ Router.route('/torneo/:slug', {
     }
 });
 
-// Generic events
+// General events
 Events = {
     'click .nav-toggle-alt': function(e) {
         e.preventDefault();

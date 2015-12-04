@@ -1110,7 +1110,7 @@ ul.topnav h4 {
  .nest .title-alt {
     border-radius: 4px 4px 0 0;
     height: 50px;
-    margin: 30px auto 0;
+    margin: 20px auto 0;
     border-bottom: 1px dotted #DDDDDD;
 }
 .nest .title-alt h6 {
@@ -2126,6 +2126,7 @@ label.for-iCheck {
     text-transform: none;
     font-size: 12px;
 }
+.full-width { width: 100%; }
 
 /*** Effects & Animations ***/
 @-webkit-keyframes highlight {
