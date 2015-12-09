@@ -2154,3 +2154,20 @@ label.for-iCheck {
 .pr15, .pa15 { padding-right: 15px !important; }
 .pbm, .pam { padding-bottom: 10px !important; }
 /*** END Margins & Paddings ***/
+
+/*** Admin tweaks ***/
+body.fixed .logo { margin: 0; }
+body.fixed .navbar {
+    margin-top: 0 !important;
+    min-height: 50px !important;
+}
+body.fixed .breadcrumb { background-color: transparent !important; }
+body.fixed input[type="search"] {
+    background: rgba(0, 0, 0, 0.3);
+    padding-left: 10px;
+    color: white;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+body.fixed input[type="search"]:focus { background: rgba(0, 0, 0, 1); }
+/*** END Admin tweaks ***/

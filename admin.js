@@ -2,6 +2,7 @@
 AdminConfig = {
     name: 'Prode de Amigos',
     roles: ['admin'],
+    skin: 'green',
     collections: {
         FantasyTournaments: {
             icon: 'trophy',
@@ -77,6 +78,17 @@ AdminConfig = {
                     waitOn: function () { return Meteor.subscribe('teams'); }
                 }
             }
+        },
+        Invites: {
+            icon: 'link',
+            color: 'green',
+            tableColumns: [
+                { label: 'Fantasy Tournament', name: 'fantasyTournamentId' },
+                { label: 'Invitee', name: 'invitee' },
+                { label: 'Referrer', name: 'referrerName' },
+                { label: 'Token', name: 'token' },
+                { label: 'Processed', name: 'processed' }
+            ]
         }
     }
 };

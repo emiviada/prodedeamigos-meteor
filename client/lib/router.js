@@ -26,6 +26,7 @@ onBeforeActions = {
 // Routes
 Router.configure({
     layoutTemplate: 'layout',
+    notFoundTemplate: "notFound"
     /*loadingTemplate: 'loading',
     waitOn: function() {
         var currentUser = Meteor.userId();
@@ -108,6 +109,14 @@ Router.route('/torneo/:slug', {
             Meteor.subscribe('teams'),
             Meteor.subscribe('images')
         ];
+    }
+});
+Router.route('/invite/:token', {
+    name: 'inviteList',
+    template: 'inviteList',
+    onBeforeAction: onBeforeActions.loginRequired,
+    data: function() {
+        Session.set('invitationToken', this.params.token);
     }
 });
 

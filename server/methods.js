@@ -95,5 +95,23 @@ Meteor.methods({
 	      	subject: subject,
 	      	html: Handlebars.templates[templateName](templateParams)
 	    });
-  	}
+  	},
+    // Join from an invite
+    joinFromInvite: function(token) {
+        check(token, String);
+        // Find Invite
+        var invite = Invites.findOne({token: token, processed: false});
+        if (invite) {
+            var newMember = {
+                userId: Meteor.userId(),
+                hits: 0,
+                hitsExact: 0,
+                points: 0
+            };
+            // Update FantasyTournament
+            FantasyTournaments.update({_id: invite.fantasyTournamentId}, {$push: {members: newMember}});
+            // Update Invite
+            Invites.update({token: token, processed: false}, {$set: {processed: true}});
+        }
+    }
 });
