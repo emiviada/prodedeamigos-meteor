@@ -65,3 +65,15 @@ UI.registerHelper('formatDate', function(date, format) {
     }
     return r;
 });
+
+// Global functions
+joinFromInvite =  function() {
+    if (Session.get('invitationToken')) {
+        Meteor.call('joinFromInvite', Session.get('invitationToken'), function(error) {
+            if (!error) {
+                FlashMessages.sendSuccess("Te has unido al torneo exitosamente.");
+            }
+        });
+        Session.set('invitationToken', null);
+    }
+};

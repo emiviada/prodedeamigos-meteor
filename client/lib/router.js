@@ -116,7 +116,20 @@ Router.route('/invite/:token', {
     template: 'inviteList',
     onBeforeAction: onBeforeActions.loginRequired,
     data: function() {
-        Session.set('invitationToken', this.params.token);
+        var invite = Invites.findOne({token: this.params.token, processed: false});
+        if (invite) {
+            Session.set('invitationToken', this.params.token);
+        }
+
+        return invite;
+    },
+    onAfterAction: function() {
+        if (this.ready() && this.data() === undefined) {
+            Router.go('home');
+        }
+    },
+    waitOn: function() {
+        return Meteor.subscribe('invites');
     }
 });
 

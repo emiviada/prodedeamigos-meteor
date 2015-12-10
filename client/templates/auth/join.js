@@ -39,16 +39,8 @@ Template.join.events({
 Template.join.onCreated(function() {
     Session.set(ERRORS_KEY, {});
 });
-var joinFromInvite =  function() {
-    if (Session.get('invitationToken')) {
-        Meteor.call('joinFromInvite', Session.get('invitationToken'), function(error) {
-            if (!error) {
-                FlashMessages.sendSuccess("Te has unido al torneo exitosamente.");
-            }
-        });
-        Session.set('invitationToken', null);
-    }
-};
+
+// onRendered hook
 Template.join.onRendered(function() {
     var validator = $('.join').validate({
         rules: {
