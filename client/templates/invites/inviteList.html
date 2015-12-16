@@ -1,3 +1,29 @@
 <template name="inviteList">
-	<h1>Invite List</h1>
+	<div class="col-sm-12">
+        <div class="nest" id="alertClose">
+            <div class="title-alt">
+                <h6>Invites</h6>
+                <div class="titleToggle">
+                    <a class="nav-toggle-alt" href="#invites">
+                        <span class="entypo-up-open"></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="body-nest" id="invites">
+                <!--  <h2>Table Bordered</h2> -->
+                <p>Aqu&iacute; puedes encontrar tus invitaciones a torneos:</p>
+
+                <div class="alert alert-success">
+                    <button data-dismiss="alert" class="close" type="button">×</button>
+                    <span class="entypo-thumbs-up"></span>
+                    {{#if processed}}
+                    	<strong>{{ fantasyTournament.name }}!</strong>&nbsp;&nbsp;Te has unido al torneo exitosamente.
+                	{{else}}
+                    	<strong>{{ fantasyTournament.name }}!</strong>&nbsp;&nbsp;Has sido invitado al torneo.
+                	{{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
 </template>

@@ -1,3 +1,1 @@
-if (Meteor.isClient) {
-	// Template: createTournament
-}
+// Template: createTournament

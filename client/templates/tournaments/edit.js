@@ -21,7 +21,9 @@ if (Meteor.isClient) {
                 var form = $(e),
                     field = form.find('.multiemails'),
                     emails = field.val().split(/[;,]+/), // split element by , and ;
-                    invite = {};
+                    invite = {},
+                    already = false,
+                    existingInvite;
 
                 for (var i in emails) { // Create an invite for each email
                     invite = {
@@ -31,32 +33,40 @@ if (Meteor.isClient) {
                         token: Random.hexString(10),
                         fantasyTournamentId: ftId
                     }
-                    Meteor.call('sendInvite', invite, function(error, result) {
-                        if (!error) {
-                            var invite = Invites.findOne({_id: result}),
-                                ft = FantasyTournaments.findOne({_id: invite.fantasyTournamentId});
+                    // Check if invite was already sent to an existing user
+                    existingInvite = Invites.findOne({fantasyTournamentId: ftId, invitee: $.trim(emails[i])});
+                    if (existingInvite) {
+                        already = true;
+                    }
 
-                            // Send email
-                            if (invite && ft) {
-                                var token = invite.token,
-                                    url = window.location.origin + '/invite/' + token,
-                                    tournamentName = ft.name,
-                                    referrerName = invite.referrerName;
+                    if (!already) {
+                        Meteor.call('sendInvite', invite, function(error, result) {
+                            if (!error) {
+                                var invite = Invites.findOne({_id: result}),
+                                    ft = FantasyTournaments.findOne({_id: invite.fantasyTournamentId});
 
-                                Meteor.call('sendEmail',
-                                    invite.invitee,
-                                    "Prode de amigos <" + invite.referrer + ">",
-                                    invite.referrer + " te ha invitado a participar de un torneo!",
-                                    'send-invite',
-                                    {
-                                        url: url,
-                                        referrerName: referrerName,
-                                        tournamentName: tournamentName
-                                    }
-                                );
+                                // Send email
+                                if (invite && ft) {
+                                    var token = invite.token,
+                                        url = window.location.origin + '/invite/' + token,
+                                        tournamentName = ft.name,
+                                        referrerName = invite.referrerName;
+
+                                    Meteor.call('sendEmail',
+                                        invite.invitee,
+                                        "Prode de amigos <" + invite.referrer + ">",
+                                        invite.referrer + " te ha invitado a participar de un torneo!",
+                                        'send-invite',
+                                        {
+                                            url: url,
+                                            referrerName: referrerName,
+                                            tournamentName: tournamentName
+                                        }
+                                    );
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 } // end FOR
 
                 FlashMessages.sendSuccess("Las invitaciones han sido enviadas.");
