@@ -2,6 +2,15 @@
 	{{#each tournaments }}
         {{> tournamentGamesWidget}}
     {{else}}
-    	No estas participando en ning&uacute;n torneo.
+    	<div class="col-sm-12">
+	    	<div class="nest" id="tableStaticClose-{{_id}}">
+	            <div class="title-alt">
+
+	            </div>
+	            <div class="body-nest" id="tableStaticGames-{{_id}}">
+	                <p>No estas participando en ning&uacute;n torneo.</p>
+	            </div>
+	        </div>
+	    </div>
     {{/each}}
 </template>

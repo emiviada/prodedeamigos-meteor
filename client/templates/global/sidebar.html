@@ -13,19 +13,6 @@
         <a id="toggle">
             <span class="entypo-menu"></span>
         </a>
-        <div class="dark">
-            <form action="#">
-                <span>
-                    <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..."/>
-                </span>
-            </form>
-        </div>
-        <div class="search-hover">
-            <form id="demo-2">
-                <input type="search" placeholder="Search Menu..." class="id_search">
-            </form>
-        </div>
-
         <div class="skin-part">
             <div id="tree-wrap">
                 <div class="side-bar">
@@ -35,6 +22,7 @@
                                 <span class="widget-tournaments"></span>
                             </a>
                         </li>
+
                         <li>
                             <a class="tooltip-tip ajax-load" href="#" title="Participando En:">
                                 <i class="icon-view-list"></i>
@@ -46,6 +34,12 @@
                                         <a class="tooltip-tip2 ajax-load" href="{{pathFor 'seeTournament' slug=slug}}" title="{{name}}">
                                         	<i class="entypo-doc-text"></i><span>{{name}}</span>
                                     	</a>
+                                    </li>
+                                {{else}}
+                                    <li>
+                                        <a class="tooltip-tip2 ajax-load" href="" title="none">
+                                            <i class="entypo-doc-text"></i><span>Ningun torneo.</span>
+                                        </a>
                                     </li>
                                 {{/each}}
                             </ul>
@@ -63,9 +57,16 @@
                                             <i class="entypo-doc-text"></i><span>{{name}}</span>
                                         </a>
                                     </li>
+                                {{else}}
+                                    <li>
+                                        <a class="tooltip-tip2 ajax-load" href="" title="none">
+                                            <i class="entypo-doc-text"></i><span>Ningun torneo.</span>
+                                        </a>
+                                    </li>
                                 {{/each}}
                             </ul>
                         </li>
+
                         <li>
                             <a class="tooltip-tip ajax-load" href="{{pathFor 'createTournament'}}" title="Crear Torneo">
                                 <i class="icon-plus"></i>
