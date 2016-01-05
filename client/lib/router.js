@@ -111,6 +111,21 @@ Router.route('/torneo/:slug', {
         ];
     }
 });
+Router.route('/torneo/:slug/invitar/:_id', {
+    name: 'tournamentInvitation',
+    template: 'tournamentInvitation',
+    onBeforeAction: onBeforeActions.loginRequired,
+    data: function() {
+        Session.set('tournamentInvitationToken', this.params._id);
+
+        return;
+    },
+    onAfterAction: function() {
+        if (this.ready()) {
+            Router.go('home');
+        }
+    }
+});
 Router.route('/invite/:token', {
     name: 'inviteList',
     template: 'inviteList',

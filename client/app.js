@@ -68,6 +68,7 @@ UI.registerHelper('formatDate', function(date, format) {
 
 // Global functions
 joinFromInvite =  function() {
+    // Individual invitation (by email)
     if (Session.get('invitationToken')) {
         Meteor.call('joinFromInvite', Session.get('invitationToken'), function(error) {
             if (!error) {
@@ -75,5 +76,14 @@ joinFromInvite =  function() {
             }
         });
         Session.set('invitationToken', null);
+    }
+    // Tournament invitation (link)
+    if (Session.get('tournamentInvitationToken')) {
+        Meteor.call('joinFromTournamentInvite', Session.get('tournamentInvitationToken'), function(error) {
+            if (!error) {
+                FlashMessages.sendSuccess("Te has unido al torneo exitosamente.");
+            }
+        });
+        Session.set('tournamentInvitationToken', null);
     }
 };

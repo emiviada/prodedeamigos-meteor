@@ -96,7 +96,7 @@ Meteor.methods({
 	      	html: Handlebars.templates[templateName](templateParams)
 	    });
   	},
-    // Join from an invite
+    // Join from an invite (received by email)
     joinFromInvite: function(token) {
         check(token, String);
         // Find Invite
@@ -112,6 +112,41 @@ Meteor.methods({
             FantasyTournaments.update({_id: invite.fantasyTournamentId}, {$push: {members: newMember}});
             // Update Invite
             Invites.update({token: token, processed: false}, {$set: {processed: true}});
+        }
+    },
+    // Join from a tournament invite (link)
+    joinFromTournamentInvite: function(ftid) {
+        check(ftid, String);
+        // Find the Fantasy Tournament
+        var ft = FantasyTournaments.findOne({_id: ftid});
+        if (ft) {
+            // Check if user already is joined
+            var inviteeEmail = Meteor.user().getEmailAddress(),
+                existingInvite = Invites.findOne({fantasyTournamentId: ftid, invitee: inviteeEmail});
+
+            if (!existingInvite) {
+                // Create an Invite
+                var newInvite = {
+                    invitee: inviteeEmail,
+                    referrerId: ft.ownerId,
+                    referrerName: ft.ownerId,
+                    token: Random.hexString(10),
+                    fantasyTournamentId: ftid,
+                    processed: true,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                };
+                Invites.insert(newInvite);
+
+                // Join the user with the fantasy tournament
+                var newMember = {
+                    userId: Meteor.userId(),
+                    hits: 0,
+                    hitsExact: 0,
+                    points: 0
+                };
+                FantasyTournaments.update({_id: ftid}, {$push: {members: newMember}});
+            }
         }
     }
 });
