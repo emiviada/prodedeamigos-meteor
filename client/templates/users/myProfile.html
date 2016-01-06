@@ -1,0 +1,55 @@
+<template name="myProfile">
+	<!-- PROFILE -->
+	<div class="content-wrap">
+	    <div class="row">
+	        <div class="col-sm-12">
+	            <div class="well profile">
+	                <div class="col-sm-12">
+	                    <div class="col-xs-12 col-sm-4 text-center">
+	                        <ul class="list-group">
+	                            <li class="list-group-item text-left">
+	                                <span class="entypo-user"></span>&nbsp;&nbsp;Mi Perfil</li>
+	                            <li class="list-group-item text-center">
+	                                <img src="{{ currentUser.getProfilePicture }}" alt="" class="img-circle img-responsive img-profile">
+	                            </li>
+	                            <li class="list-group-item text-left">
+                                    <span><strong>{{ currentUser.getFullName }}</strong></span>
+                                </li>
+	                        </ul>
+	                    </div>
+
+	                    <div class="col-xs-12 col-sm-8 profile-name">
+	                        <h2>{{ currentUser.getFullName }}
+	                            <span class="pull-right">
+	                                <a href="{{pathFor 'editProfile'}}">
+	                                	<i class="entypo-pencil"></i>&nbsp;
+	                                	Editar mi perfil
+                                	</a>
+	                            </span>
+	                        </h2>
+	                        <hr>
+
+	                        <dl class="dl-horizontal-profile">
+	                            <dt>Nombre</dt>
+	                            <dd>{{ currentUser.getName }}</dd>
+
+	                            <dt>Email</dt>
+	                            <dd>{{ currentUser.getEmailAddress }}</dd>
+
+	                            <dt>Miembro desde</dt>
+	                            <dd>{{ formatDate currentUser.createdAt 'DD/MM/YYYY HH:mm' }}</dd>
+
+	                            <dt>Simpatizante de</dt>
+	                            <dd>River Plate</dd>
+
+	                            <dt>Acerca de mi</dt>
+	                            <dd>Web Designer / UI</dd>
+	                        </dl>
+
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    </div>
+</template>

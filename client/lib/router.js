@@ -147,6 +147,16 @@ Router.route('/invite/:token', {
         return Meteor.subscribe('invites');
     }
 });
+Router.route('/mi-perfil', {
+    name: 'myProfile',
+    template: 'myProfile',
+    onBeforeAction: onBeforeActions.loginRequired
+});
+Router.route('/mi-perfil/editar', {
+    name: 'editProfile',
+    template: 'editProfile',
+    onBeforeAction: onBeforeActions.loginRequired
+});
 
 // General events
 Events = {
