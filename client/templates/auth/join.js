@@ -80,7 +80,7 @@ Template.join.onRendered(function() {
                         errors[input.attr('name')] = 'error';
                     }
                 });
-                if (errors) {console.log(errors);
+                if (errors) {
                     Session.set(ERRORS_KEY, errors);
                 }
             }, 100);

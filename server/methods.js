@@ -1,5 +1,33 @@
 // Methods
 Meteor.methods({
+    // Users methods
+    'updateProfile': function(info) {
+        var currentUser = Meteor.userId();
+
+        check(info, {firstname: String, lastname: String, email: String, supportedTeam: String, about: String});
+
+        if (currentUser) {
+            if (info.email !== Meteor.user().getEmailAddress) { // Update email
+                Meteor.users.update({_id: currentUser}, {$set: {"emails.0.address": info.email}});
+                delete info.email;
+            }
+            info.name = info.firstname + ' ' + info.lastname;
+            return Meteor.users.update({_id: currentUser}, {$set: {"profile": info}});
+        } else {
+            throw new Meteor.Error("not-logged-in", "You're not logged-in.");
+        }
+    },
+    'updateProfilePicture': function(pictureId) {
+        var currentUser = Meteor.userId();
+
+        check(pictureId, String);
+
+        if (currentUser) {
+            return Meteor.users.update({_id: currentUser}, {$set: {"profile.picture": pictureId}});
+        } else {
+            throw new Meteor.Error("not-logged-in", "You're not logged-in.");
+        }
+    },
 	// FantasyTournaments methods
 	'createFantasyTournament': function(object) {
         var currentUser = Meteor.userId();

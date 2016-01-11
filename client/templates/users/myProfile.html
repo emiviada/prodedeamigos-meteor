@@ -40,10 +40,10 @@
 	                            <dd>{{ formatDate currentUser.createdAt 'DD/MM/YYYY HH:mm' }}</dd>
 
 	                            <dt>Simpatizante de</dt>
-	                            <dd>River Plate</dd>
+	                            <dd>{{ currentUser.getSupportedTeam.alias }}</dd>
 
 	                            <dt>Acerca de mi</dt>
-	                            <dd>Web Designer / UI</dd>
+	                            <dd>{{ currentUser.profile.about }}</dd>
 	                        </dl>
 
 	                    </div>

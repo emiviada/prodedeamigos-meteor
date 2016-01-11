@@ -150,12 +150,18 @@ Router.route('/invite/:token', {
 Router.route('/mi-perfil', {
     name: 'myProfile',
     template: 'myProfile',
-    onBeforeAction: onBeforeActions.loginRequired
+    onBeforeAction: onBeforeActions.loginRequired,
+    waitOn: function() {
+        return Meteor.subscribe('images');
+    }
 });
 Router.route('/mi-perfil/editar', {
     name: 'editProfile',
     template: 'editProfile',
-    onBeforeAction: onBeforeActions.loginRequired
+    onBeforeAction: onBeforeActions.loginRequired,
+    waitOn: function() {
+        return Meteor.subscribe('images');
+    }
 });
 
 // General events

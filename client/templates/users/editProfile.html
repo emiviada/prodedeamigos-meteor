@@ -24,8 +24,8 @@
                                     <div class="input-group">
                                         <span class="input-group-btn">
                                             <span class="btn btn-primary btn-file">
-                                                Browse
-                                                <input type="file" multiple="">
+                                                Subir
+                                                <input type="file" multiple="" class="profile-pic-uploader">
                                             </span>
                                         </span>
                                         <input type="text" class="form-control">
@@ -38,72 +38,52 @@
                             <div class="col-md-9 personal-info">
                                 <h3>Mi Informaci&oacute;n</h3>
 
-                                <form class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label">First name:</label>
+                                <form class="form-horizontal edit-profile-form" role="form">
+                                    <div class="form-group {{errorClass 'firstname'}}">
+                                        <label class="col-lg-3 control-label">Nombre:</label>
                                         <div class="col-lg-8">
-                                            <input class="form-control" value="Jane" type="text">
+                                            <input class="form-control" name="firstname" value="{{ currentUser.profile.firstname }}" type="text" required>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label">Last name:</label>
+                                    <div class="form-group {{errorClass 'lastname'}}">
+                                        <label class="col-lg-3 control-label">Apellido:</label>
                                         <div class="col-lg-8">
-                                            <input class="form-control" value="Bishop" type="text">
+                                            <input class="form-control" name="lastname" value="{{ currentUser.profile.lastname }}" type="text" required>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label">Company:</label>
-                                        <div class="col-lg-8">
-                                            <input class="form-control" value="" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
+                                    <div class="form-group {{errorClass 'email'}}">
                                         <label class="col-lg-3 control-label">Email:</label>
                                         <div class="col-lg-8">
-                                            <input class="form-control" value="janesemail@gmail.com" type="text">
+                                            <input class="form-control" name="email" value="{{ currentUser.getEmailAddress }}" type="email" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-3 control-label">Time Zone:</label>
+                                        <label class="col-lg-3 control-label">Simpatizante de:</label>
                                         <div class="col-lg-8">
                                             <div class="ui-select">
-                                                <select id="user_time_zone" class="form-control">
-                                                    <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                                    <option value="Alaska">(GMT-09:00) Alaska</option>
-                                                    <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                                                    <option value="Arizona">(GMT-07:00) Arizona</option>
-                                                    <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                                    <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                                    <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                                                    <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                                                <select id="teams" name="team" class="form-control" style="width:100%;">
+                                                    <option value="">--</option>
+                                                    {{#each teams}}
+                                                    	<option value="{{_id}}" {{selected _id currentUser.profile.supportedTeam}}>{{alias}}</option>
+                                                    {{/each}}
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Username:</label>
-                                        <div class="col-md-8">
-                                            <input class="form-control" value="janeuser" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Password:</label>
-                                        <div class="col-md-8">
-                                            <input class="form-control" value="11111122333" type="password">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Confirm password:</label>
-                                        <div class="col-md-8">
-                                            <input class="form-control" value="11111122333" type="password">
+                                        <label class="col-lg-3 control-label">Acerca de mi:</label>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" name="about" value="{{ currentUser.profile.about }}" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label"></label>
                                         <div class="col-md-8">
-                                            <input class="btn btn-primary" value="Guardar" type="button">
-                                            <span></span>
-                                            <input class="btn btn-default" value="Cancelar" type="reset">
+                                            <input class="btn btn-primary btn-save" value="Guardar" type="submit" data-loading-text="Guardando..">
+                                            <span>&nbsp;</span>
+                                            <a href="{{pathFor 'myProfile'}}" class="btn btn-default">Cancelar</a>
+                                            <span>&nbsp;</span>
+                                            <a href="">Modificar password</a>
                                         </div>
                                     </div>
                                 </form>
