@@ -4,14 +4,36 @@ Meteor.methods({
     'updateProfile': function(info) {
         var currentUser = Meteor.userId();
 
-        check(info, {firstname: String, lastname: String, email: String, supportedTeam: String, about: String});
-
         if (currentUser) {
-            if (info.email !== Meteor.user().getEmailAddress) { // Update email
-                Meteor.users.update({_id: currentUser}, {$set: {"emails.0.address": info.email}});
+            var user = Meteor.user(),
+                facebookUser = user.isFacebookUser(),
+                twitterUser = user.isTwitterUser(),
+                normalUser = user.isNormalUser();
+
+            if (facebookUser) {
+                check(info, {supportedTeam: String, about: String});
+                info.name = user.profile.name;
+            } else if (twitterUser) {
+                check(info, {supportedTeam: String, about: String, email: String});
+                info.name = user.profile.name;
+            } else {
+                check(info, {supportedTeam: String, about: String, firstname: String, lastname: String, email: String});
+                info.name = info.firstname + ' ' + info.lastname;
+                if (user.profile.picture) {
+                    info.picture = user.profile.picture;
+                }
+            }
+
+            if (info.email !== Meteor.user().getEmailAddress && !facebookUser) { // Update email
+                if (user.emails) {
+                    Meteor.users.update({_id: currentUser}, {$set: {"emails.0.address": info.email}});
+                } else {
+                    var emails = {'address': info.email, 'verified': false};
+                    Meteor.users.update({_id: currentUser}, {$push: {emails: emails}});
+                }
                 delete info.email;
             }
-            info.name = info.firstname + ' ' + info.lastname;
+
             return Meteor.users.update({_id: currentUser}, {$set: {"profile": info}});
         } else {
             throw new Meteor.Error("not-logged-in", "You're not logged-in.");

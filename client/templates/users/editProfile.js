@@ -42,12 +42,18 @@ Template.editProfile.onRendered(function() {
 		},
 		submitHandler: function(e) {
             var info = {
-            	firstname: $('input[name="firstname"]').val(),
-            	lastname: $('input[name="lastname"]').val(),
-            	email: $('input[name="email"]').val(),
             	supportedTeam: $('#teams').val(),
             	about: $('input[name="about"]').val()
             };
+
+            if (currentUser.isTwitterUser) {
+            	info.email = $('input[name="email"]').val();
+            }
+            if (currentUser.isNormalUser) {
+            	info.firstname = $('input[name="firstname"]').val();
+            	info.lastname = $('input[name="lastname"]').val();
+            	info.email = $('input[name="email"]').val();
+            }
 
             Meteor.call('updateProfile', info, function(error, result) {
             	if (!error) {
@@ -112,5 +118,9 @@ Template.editProfile.events({
 		if (parent.hasClass('error')) {
     		parent.removeClass('error');
 		}
+    },
+    'click .change-password': function(e) {
+    	e.preventDefault();
+    	Modal.show('changePassword');
     }
 });

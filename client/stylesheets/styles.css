@@ -2255,4 +2255,18 @@ body.fixed input[type="search"]:focus { background: rgba(0, 0, 0, 1); }
     cursor: inherit;
     display: block;
 }
-/*** Profile ***/
+#editProfile .img-circle { width: 135px; }
+/*** END Profile ***/
+.modal-dialog {
+    position:absolute;
+    top:50% !important;
+    transform: translate(-50%, -50%) !important;
+    -ms-transform: translate(-50%, -50%) !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+    margin:auto 50%;
+    width: 80%;
+}
+@media (min-width: 768px) {
+    .modal-dialog { width: 600px !important; }
+}
+.modal-backdrop.in { opacity: .75 }
