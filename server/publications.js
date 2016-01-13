@@ -28,6 +28,10 @@ Meteor.publish('invites', function() {
     return Invites.find();
 });
 
+Meteor.publish('messages', function(ftId) {
+    return Messages.find({fantasyTournamentId: ftId});
+});
+
 Meteor.publish('images', function() {
     return Images.find();
 });

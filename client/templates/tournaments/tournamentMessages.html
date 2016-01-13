@@ -1,0 +1,33 @@
+<template name="tournamentMessages">
+	<div class="col-sm-12 mtl messages">
+        <div class="panel panel-default">
+            <div class="panel-fb tweet-bgcolor">
+                <h4>
+                    Mensajes
+                </h4>
+            </div>
+            <div class="panel-body">
+                {{#each messages}}
+	                <img class="img-circle pull-left" src="{{ getAuthor.getProfilePicture }}">
+	                <div class="social-profile">
+	                    <h3> <a class="tweet-link" href="#">{{ getAuthor.getFullName }}</a>
+	                        <span><i class="entypo-globe"></i>&nbsp;{{ formatDate createdAt 'DD/MM/YYYY HH:mm' }}</span>
+	                    </h3>
+	                    <p>{{ message }}</p>
+	                </div>
+	                <div class="clearfix"></div>
+	                <hr>
+                {{else}}
+                	<p>No existe ning&uacute;n mensaje. Se el primero en dejar uno.</p>
+                {{/each}}
+
+                <form role="form">
+                    <div class="input-group full-width">
+                        <input type="text" placeholder="Deja tu mensaje.." class="form-control new-message">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</template>

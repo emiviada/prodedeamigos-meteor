@@ -10,7 +10,7 @@ Template.tournament.helpers({
         this.members.forEach(function(m) {
             membersIds.push(m.userId);
         });
-        users = Meteor.users.find({_id: {$in: membersIds}}, {fields: {'services': 1, 'emails': 1}});
+        users = Meteor.users.find({_id: {$in: membersIds}}, {fields: {'services': 1, 'emails': 1, 'profile': 1}});
 
         this.members.forEach(function(m) {
             users.map(function(user) {

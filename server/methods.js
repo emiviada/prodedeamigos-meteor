@@ -25,6 +25,13 @@ Meteor.methods({
             }
 
             if (info.email !== Meteor.user().getEmailAddress && !facebookUser) { // Update email
+
+                // Validate if email already exists
+                if (Meteor.users.find({"emails.address": info.email}).count() ||
+                    Meteor.users.find({"services.facebook.email": info.email}).count()) {
+                        throw new Meteor.Error("already-exists", "Esta direccion de email ya existe.");
+                }
+
                 if (user.emails) {
                     Meteor.users.update({_id: currentUser}, {$set: {"emails.0.address": info.email}});
                 } else {
@@ -197,6 +204,20 @@ Meteor.methods({
                 };
                 FantasyTournaments.update({_id: ftid}, {$push: {members: newMember}});
             }
+        }
+    },
+    // Messages
+    leaveMessage: function(newMsg) {
+        var currentUser = Meteor.userId();
+
+        if (currentUser) {
+            check(newMsg, {fantasyTournamentId: String, authorId: String, message: String});
+            newMsg.createdAt = new Date();
+
+            return Messages.insert(newMsg);
+
+        } else {
+            throw new Meteor.Error("not-logged-in", "You're not logged-in.");
         }
     }
 });

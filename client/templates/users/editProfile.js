@@ -56,11 +56,18 @@ Template.editProfile.onRendered(function() {
             }
 
             Meteor.call('updateProfile', info, function(error, result) {
-            	if (!error) {
-					$('.btn-save').button('reset');
+            	if (error) {
+					var errors = {};
+                    errors.email = error.reason;
+                    validator.showErrors({
+                        email: error.reason
+                    });
+                    Session.set(ERRORS_KEY, errors);
+            	} else {
             		Router.go('myProfile');
                     FlashMessages.sendSuccess("Tu perfil ha sido editado exitosamente.");
             	}
+            	$('.btn-save').button('reset');
             });
         },
         invalidHandler: function(event, validator) {
