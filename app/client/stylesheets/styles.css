@@ -2322,6 +2322,106 @@ body.fixed input[type="search"]:focus { background: rgba(0, 0, 0, 1); }
 .messages hr { margin: 10px 0; }
 /*** END Messages ***/
 
+/*** 404 page ***/
+.logo-error {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 3px 3px 0 0;
+    color: #FFFFFF;
+    left: 0;
+    padding: 5px 0 15px 25px;
+    top: -20px;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1);
+}
+.logo-error h1 {
+    color: #FFFFFF;
+    font-size: 30px;
+    font-weight: 200;
+    letter-spacing: -1px;
+    text-decoration: inherit;
+    text-transform: uppercase;
+}
+.logo-error h1 span {
+    font-size: 19px;
+    margin-left: 0;
+    padding: 0 5px;
+    position: relative;
+    top: -3px;
+    color: #fff;
+    text-transform: none;
+}
+.page-error {
+    min-width: 200px;
+}
+.page-error {
+    padding: 15px;
+    margin: 30px 0 0;
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5000;
+}
+h2.headline.text-info {
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.headline {
+    /* color: rgba(255, 255, 255, 0.5)!important; */
+    /* font-size: 70px; */
+    letter-spacing: -1px;
+    /* background: rgba(0, 0, 0, 0.1); */
+    /* width: 500px; */
+    margin: 0 auto 20px;
+    border-radius: 66px;
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    /* box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.1); */
+}
+.headline-lock {
+    color: rgba(255, 255, 255, 0.5)!important;
+    font-size: 70px;
+    letter-spacing: -1px;
+    background: rgba(0, 0, 0, 0.1);
+    width: 500px;
+    margin: 0 auto 20px;
+    border-radius: 66px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.1);
+}
+div.error-content {
+    color: #fff;
+}
+.text-yellow {
+    color: #FFA200;
+}
+.error-link {
+    color: #FFA200;
+}
+@media (max-width: 767px) {
+    .headline {
+        color: rgba(255, 255, 255, 0.5)!important;
+        font-size: 20px;
+        letter-spacing: -1px;
+        width: auto;
+        margin: 0 auto 20px;
+    }
+    .page-error {
+        margin: 0 auto;
+    }
+    #lock {
+        padding: 0!important;
+    }
+}
+@media screen and (max-width: 480px) {
+    .lockscreen .headline {
+        font-size: 60px;
+        margin-bottom: 40px;
+    }
+}
+/*** END 404 page ***/
+
 .modal-dialog {
     position:absolute;
     top:50% !important;

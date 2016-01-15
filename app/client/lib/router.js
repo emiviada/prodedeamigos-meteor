@@ -26,7 +26,6 @@ onBeforeActions = {
 // Routes
 Router.configure({
     layoutTemplate: 'layout',
-    notFoundTemplate: "notFound",
     defaultBreadcrumbLastLink: false
     /*loadingTemplate: 'loading',
     waitOn: function() {
@@ -182,6 +181,11 @@ Router.route('/mi-perfil/editar', {
     waitOn: function() {
         return Meteor.subscribe('images');
     }
+});
+Router.route('/(.*)', {
+    name: 'pageNotFound',
+    layoutTemplate: 'notFound',
+    template: '404'
 });
 
 // General events
