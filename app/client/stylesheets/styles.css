@@ -2318,7 +2318,8 @@ body.fixed input[type="search"]:focus { background: rgba(0, 0, 0, 1); }
     font-style: normal;
     margin: 0 0 0 8px;
 }
-.messages .img-circle { width: 75px; }
+.messages .img-circle { width: 50px; }
+.messages hr { margin: 10px 0; }
 /*** END Messages ***/
 
 .modal-dialog {

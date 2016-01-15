@@ -1,11 +1,23 @@
-<template name="breadcrumb">
+<template name="breadcrumbProde">
 	<ul id="breadcrumb">
         <li>
             <span class="entypo-home"></span>
         </li>
-        <li><i class="fa fa-lg fa-angle-right"></i></li>
+
+		{{#each Breadcrumb}}
+            <li><i class="fa fa-lg fa-angle-right"></i></li>
+            <li class="{{cssClasses}}">
+            {{#if showLink}}
+                <a href="{{url}}">{{title}}</a>
+            {{else}}
+                {{title}}
+            {{/if}}
+            </li>
+        {{/each}}
+
+        <!--
         <li><a href="#" title="Sample page 1">Home</a></li>
         <li><i class="fa fa-lg fa-angle-right"></i></li>
-        <li><a href="#" title="Sample page 1">Dashboard</a></li>
+        <li><a href="#" title="Sample page 1">Dashboard</a></li>-->
     </ul>
 </template>

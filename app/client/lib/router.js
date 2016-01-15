@@ -26,7 +26,8 @@ onBeforeActions = {
 // Routes
 Router.configure({
     layoutTemplate: 'layout',
-    notFoundTemplate: "notFound"
+    notFoundTemplate: "notFound",
+    defaultBreadcrumbLastLink: false
     /*loadingTemplate: 'loading',
     waitOn: function() {
         var currentUser = Meteor.userId();
@@ -54,6 +55,7 @@ Router.route('/join', {
     onBeforeAction: onBeforeActions.alreadyLoggedIn
 });
 Router.route('/dashboard', {
+    title: 'Dashboard',
     onBeforeAction: onBeforeActions.loginRequired,
     waitOn: function() {
         return [
@@ -68,6 +70,8 @@ Router.route('/dashboard', {
 Router.route('/torneo/crear', {
     name: 'createTournament',
     template: 'createTournament',
+    title: 'Crear torneo',
+    parent: 'dashboard',
     onBeforeAction: onBeforeActions.loginRequired,
     waitOn: function() {
         return Meteor.subscribe('tournaments');
@@ -76,6 +80,11 @@ Router.route('/torneo/crear', {
 Router.route('/torneo/editar/:slug', {
     name: 'editTournament',
     template: 'editTournament',
+    parent: 'dashboard',
+    title: function() {
+        var data = this.data();
+        return 'Editar ' + data.name;
+    },
     onBeforeAction: onBeforeActions.loginRequired,
     data: function() {
         var currentTournament = this.params.slug,
@@ -95,6 +104,11 @@ Router.route('/torneo/:slug', {
     name: 'seeTournament',
     template: 'tournament',
     onBeforeAction: onBeforeActions.loginRequired,
+    parent: 'dashboard',
+    title: function() {
+        var data = this.data();
+        return data.name;
+    },
     data: function() {
         var currentTournament = this.params.slug,
             currentUser = Meteor.userId();
@@ -130,6 +144,8 @@ Router.route('/invite/:token', {
     name: 'inviteList',
     template: 'inviteList',
     onBeforeAction: onBeforeActions.loginRequired,
+    title: 'Invitaciones',
+    parent: 'dashboard',
     data: function() {
         var invite = Invites.findOne({token: this.params.token, processed: false});
         if (invite) {
@@ -151,6 +167,8 @@ Router.route('/mi-perfil', {
     name: 'myProfile',
     template: 'myProfile',
     onBeforeAction: onBeforeActions.loginRequired,
+    title: 'Mi Perfil',
+    parent: 'dashboard',
     waitOn: function() {
         return Meteor.subscribe('images');
     }
@@ -159,6 +177,8 @@ Router.route('/mi-perfil/editar', {
     name: 'editProfile',
     template: 'editProfile',
     onBeforeAction: onBeforeActions.loginRequired,
+    title: 'Editar mi Perfil',
+    parent: 'dashboard',
     waitOn: function() {
         return Meteor.subscribe('images');
     }
