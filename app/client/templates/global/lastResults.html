@@ -1,0 +1,11 @@
+<template name="lastResults">
+	<ul id="nt-title">
+        {{#each games}}
+	        <li>
+	            {{ teamHome.alias }}: <b>{{ goalsHome }}</b> vs {{ teamAway.alias }}: <b>{{ goalsAway }}</b>
+	        </li>
+        {{else}}
+        	<li>No hay partidos</li>
+    	{{/each}}
+    </ul>
+</template>
