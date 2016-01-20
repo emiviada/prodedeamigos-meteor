@@ -1,3 +1,22 @@
+/*** METEOR ACCOUNTS ***/
+if (Accounts.emailTemplates) {
+    Accounts.emailTemplates.siteName = 'Prode de Amigos';
+    Accounts.emailTemplates.from = 'Prode de Amigos <no-reply@prodedeamigos.com>';
+    Accounts.emailTemplates.resetPassword.subject = function(user, url) {
+        return 'Recupera tu password';
+    };
+    Accounts.emailTemplates.resetPassword.text = function(user, url) {
+        url = url.replace('#/', '')
+
+        var body = 'Hola ' + user.getFullName() + ', \n\r\n\r';
+        body += 'Para recuperar tu password, simplemente haz click en el link de abajo.\n\r\n\r';
+        body += url + '\n\r\n\r';
+        body += 'Gracias.'
+
+        return body;
+    };
+}
+
 /*** ADMIN ***/
 AdminConfig = {
     name: 'Prode de Amigos',

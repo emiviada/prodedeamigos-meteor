@@ -53,6 +53,23 @@ Router.route('/join', {
     layoutTemplate: 'auth-layout',
     onBeforeAction: onBeforeActions.alreadyLoggedIn
 });
+Router.route('/olvide-password', {
+    name: 'forgotPassword',
+    template: 'forgotPassword',
+    layoutTemplate: 'auth-layout',
+    onBeforeAction: onBeforeActions.alreadyLoggedIn
+});
+Router.route('/reset-password/:token', {
+    name: 'resetPassword',
+    template: 'resetPassword',
+    title: 'Reset Password',
+    layoutTemplate: 'auth-layout',
+    onBeforeAction: onBeforeActions.alreadyLoggedIn,
+    data: function() {
+        Session.set('resetPassword', this.params.token);
+        return;
+    }
+});
 Router.route('/dashboard', {
     title: 'Dashboard',
     onBeforeAction: onBeforeActions.loginRequired,

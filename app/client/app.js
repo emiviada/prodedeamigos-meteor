@@ -2,6 +2,11 @@
 // Subscriptions
 Meteor.subscribe('userData');
 
+// Reset Password
+if (Accounts._resetPasswordToken) {
+    Session.set('resetPassword', Accounts._resetPasswordToken);
+}
+
 // Set validator defaults
 $.validator.setDefaults({
     rules: {
@@ -67,7 +72,7 @@ UI.registerHelper('formatDate', function(date, format) {
 });
 
 // Global functions
-joinFromInvite =  function() {
+joinFromInvite = function() {
     // Individual invitation (by email)
     if (Session.get('invitationToken')) {
         Meteor.call('joinFromInvite', Session.get('invitationToken'), function(error) {
