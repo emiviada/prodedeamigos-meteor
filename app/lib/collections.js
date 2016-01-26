@@ -247,6 +247,29 @@ FantasyTournaments.helpers({
 	},
 	owner: function() {
 		return Meteor.users.findOne(this.ownerId);
+	},
+	notifyRemoval: function() {
+		var ownerId = this.ownerId, membersIds = [], users
+			ftName = this.name;
+
+        this.members.forEach(function(m) {
+            membersIds.push(m.userId);
+        });
+        users = Meteor.users.find({_id: {$in: membersIds}}, {fields: {'services': 1, 'emails': 1, 'profile': 1}});
+
+        users.map(function(user) {
+            if (user._id !== ownerId) {
+            	Meteor.call('sendEmail',
+                    user.getEmailAddress(),
+                    "Prode de amigos <noreply@prodedeamigos.com>",
+                    ftName + " ha sido eliminado!",
+                    'tournament-removal',
+                    {
+                    	tournamentName: ftName
+                    }
+                );
+            }
+        });
 	}
 });
 

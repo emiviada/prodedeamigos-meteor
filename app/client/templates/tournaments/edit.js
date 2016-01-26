@@ -53,8 +53,8 @@ Template.editTournament.onRendered(function() {
 
                                 Meteor.call('sendEmail',
                                     invite.invitee,
-                                    "Prode de amigos <" + invite.referrer + ">",
-                                    invite.referrer + " te ha invitado a participar de un torneo!",
+                                    "Prode de amigos <noreply@prodedeamigos.com>",
+                                    invite.referrerName + " te ha invitado a participar de un torneo!",
                                     'send-invite',
                                     {
                                         url: url,
@@ -90,16 +90,7 @@ Template.editTournament.onRendered(function() {
 Template.editTournament.events({
 	'mousedown .delete, click .delete': function(e) {
 		e.preventDefault();
-        var id = this._id,
-            confirm = window.confirm('Deseas eliminar este torneo?');
-        if (confirm) {
-            Meteor.call('removeFantasyTournament', id, function(error) {
-            	if (!error) {
-            		Router.go('home');
-                    FlashMessages.sendInfo("El torneo ha sido eliminado exitosamente.");
-            	}
-            });
-        }
+        Modal.show('deleteModal');
 	},
     'submit form.invite-form': function(e) {
         e.preventDefault();
