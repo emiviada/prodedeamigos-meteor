@@ -2399,29 +2399,12 @@ div.error-content {
 .error-link {
     color: #FFA200;
 }
-@media (max-width: 767px) {
-    .headline {
-        color: rgba(255, 255, 255, 0.5)!important;
-        font-size: 20px;
-        letter-spacing: -1px;
-        width: auto;
-        margin: 0 auto 20px;
-    }
-    .page-error {
-        margin: 0 auto;
-    }
-    #lock {
-        padding: 0!important;
-    }
-}
-@media screen and (max-width: 480px) {
-    .lockscreen .headline {
-        font-size: 60px;
-        margin-bottom: 40px;
-    }
+.modal.terms .modal-body {
+    max-height: 500px;
+    overflow-y: scroll;
 }
 /*** END 404 page ***/
-
+.reg-social { margin-top: -20px; }
 .modal-dialog {
     position:absolute;
     top:50% !important;
@@ -2430,8 +2413,5 @@ div.error-content {
     -webkit-transform: translate(-50%, -50%) !important;
     margin:auto 50%;
     width: 80%;
-}
-@media (min-width: 768px) {
-    .modal-dialog { width: 600px !important; }
 }
 .modal-backdrop.in { opacity: .75 }

@@ -34,6 +34,10 @@ Template.join.events({
                 Router.go('home');
             }
         });
+    },
+    'click .terms': function(e) {
+        e.preventDefault();
+        Modal.show('terms');
     }
 });
 Template.join.onCreated(function() {

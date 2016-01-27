@@ -98,12 +98,32 @@
     .tittle-content-header {
         margin: 0 0 0 30px!important;
     }
+    .headline {
+        color: rgba(255, 255, 255, 0.5)!important;
+        font-size: 20px;
+        letter-spacing: -1px;
+        width: auto;
+        margin: 0 auto 20px;
+    }
+    .page-error {
+        margin: 0 auto;
+    }
+    #lock {
+        padding: 0!important;
+    }
  }
- @media (min-width: 768px) {
+@media (min-width: 768px) {
 	.navbar {
 	    border-radius: 4px;
 	}
  	.navbar-static-top {
 	    border-radius: 0;
 	}
+    .modal-dialog { width: 600px !important; }
  }
+@media screen and (max-width: 480px) {
+    .lockscreen .headline {
+        font-size: 60px;
+        margin-bottom: 40px;
+    }
+}
