@@ -99,7 +99,7 @@ Template.editProfile.helpers({
 });
 
 // Events
-Template.editProfile.events({
+Template.editProfile.events($.extend(Events, {
 	'change .profile-pic-uploader': function(e, template) {
 		FS.Utility.eachFile(event, function(file) {
 		    Images.insert(file, function (err, fileObj) {
@@ -130,4 +130,4 @@ Template.editProfile.events({
     	e.preventDefault();
     	Modal.show('changePassword');
     }
-});
+}));

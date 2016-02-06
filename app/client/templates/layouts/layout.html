@@ -1,30 +1,31 @@
 <template name="layout">
-	<!-- TOP NAVBAR -->
-    {{> navigation}}
+    <body class="authenticated">
+        <!-- TOP NAVBAR -->
+        {{> navigation}}
 
-    <!-- SIDE MENU -->
-    {{> sidebar}}
+        <!-- SIDE MENU -->
+        {{> sidebar}}
 
-    <!--  PAPER WRAP -->
-    <div class="wrap-fluid">
-        <div class="container-fluid paper-wrap bevel tlbr">
+        <!--  PAPER WRAP -->
+        <div class="wrap-fluid">
+            <div class="container-fluid paper-wrap bevel tlbr">
 
-            <!-- TITLE -->
-            {{> pageTitle}}
+                <!-- TITLE -->
+                {{> pageTitle}}
 
-            <!-- BREADCRUMB -->
-            {{> breadcrumbProde}}
+                <!-- BREADCRUMB -->
+                {{> breadcrumbProde}}
 
-            <!-- FLASH MESSAGES -->
-            {{> messages}}
+                <!-- FLASH MESSAGES -->
+                {{> messages}}
 
-            {{> yield}}
+                {{> yield}}
 
-        <!-- FOOTER -->
-        {{> footer}}
+            <!-- FOOTER -->
+            {{> footer}}
 
+            </div>
         </div>
-    </div>
-    <!--  END OF PAPER WRAP -->
-
+        <!--  END OF PAPER WRAP -->
+    </body>
 </template>

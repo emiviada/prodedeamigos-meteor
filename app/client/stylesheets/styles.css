@@ -22,6 +22,7 @@
 html {
 	 -webkit-font-smoothing: antialiased;
 }
+a:hover, a:active, a:focus { text-decoration: none; }
 /**
  * BOOTSRAP COUSTOM
  */
@@ -36,7 +37,7 @@ html {
     position: relative;
     float: right;
     padding: 0px 16px!important;
-    margin-top: 2px!important;
+    margin-top: 12px!important;
     margin-right: 15px;
     margin-bottom: 15px!important;
     background-color: transparent;
@@ -325,7 +326,7 @@ button.navbar-toggle.toggle-menu-mobile {
     right: 40px;
 }
 #logo-mobile {
-    left: -33px;
+    left: 20px;
     position: absolute;
     top: -14px;
     z-index: 0;
@@ -454,7 +455,7 @@ button.navbar-toggle.toggle-menu-mobile {
 }
 .dropdown-menu > li > a {
     clear: both;
-    color: #777777!important;
+    color: #777777;
     display: block;
     font-weight: normal;
     line-height: 1.42857;
@@ -514,9 +515,9 @@ button.navbar-toggle.toggle-menu-mobile {
     border-radius: 30px;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
     color: #FFFFFF;
-    margin: 6px;
+    margin: 6px 6px 6px 50px;
     padding: 10px 45px 0 20px;
-    width: 50%;
+    width: 60%;
 }
 .date-top {
     border-right: 1px solid rgba(0, 0, 0, 0.4);
@@ -578,14 +579,8 @@ button.navbar-toggle.toggle-menu-mobile {
 #logo {
     left: 19px;
     position: relative;
-    top: -34px;
+    top: -23px;
     max-width: 191px;
-}
-#logo-mobile {
-    left: -33px;
-    position: absolute;
-    top: -14px;
-    z-index: 0;
 }
 
 /*** Skin select ***/
@@ -618,7 +613,7 @@ button.navbar-toggle.toggle-menu-mobile {
     position: absolute;
     right: 10px;
     text-align: center;
-    top: -10px;
+    top: 5px;
     width: 30px;
     font-size: 14px;
 }
@@ -630,7 +625,7 @@ button.navbar-toggle.toggle-menu-mobile {
     height: 30px;
     left: 210px;
     position: absolute;
-    top: -10px;
+    top: 2px;
     width: 30px;
     border-radius: 3px;
 }
@@ -676,7 +671,7 @@ button.navbar-toggle.toggle-menu-mobile {
 .skin-part {
     padding: 0;
     position: relative;
-    top: 0;
+    top: -15px;
 }
 .skin-part h3 {
     color:#000;

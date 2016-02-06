@@ -86,6 +86,9 @@ less@2.5.1
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
+matb33:bootstrap-base@10.0.0
+matb33:bootstrap-tooltip@10.0.0
+matb33:bootstrap-transition-js@10.0.0
 matb33:collection-hooks@0.7.15
 mdg:validation-error@0.2.0
 meteor@1.1.10
@@ -114,6 +117,7 @@ oauth@1.1.6
 oauth1@1.1.5
 oauth2@1.1.5
 observe-sequence@1.0.7
+okgrow:analytics@1.0.4
 ordered-dict@1.0.4
 peppelg:bootstrap-3-modal@1.0.4
 promise@0.5.1

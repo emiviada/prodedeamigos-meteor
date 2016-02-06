@@ -7,18 +7,20 @@
                 <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
                     <span class="entypo-menu"></span>
                 </button>
-                <button class="navbar-toggle toggle-menu-mobile toggle-left" type="button">
-                    <span class="entypo-list-add"></span>
-                </button>
 
 				<div id="logo-mobile" class="visible-xs">
-                    <h1>Prodedeamigos.com</h1>
+                    <h1>
+                        <a href="{{pathFor 'home'}}">
+                            <img src="/images/prode-logo-small.png" title="Logo">
+                            <span>Prode de Amigos</span>
+                        </a>
+                    </h1>
                 </div>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
+                <!--<ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         	<i style="font-size:20px;" class="icon-conversation"></i>
@@ -109,9 +111,9 @@
                 		</a>
                     </li>
 
-                </ul>
+                </ul>-->
 
-                <div id="nt-title-container" class="navbar-left running-text visible-lg">
+                <div id="nt-title-container" class="navbar-left running-text hidden-xs">
                     <ul class="date-top">
                         <li class="entypo-calendar" style="margin-right:5px"></li>
                         <li id="Date"></li>

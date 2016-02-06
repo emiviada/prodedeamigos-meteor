@@ -78,7 +78,6 @@ Router.route('/dashboard', {
             Meteor.subscribe('fantasyTournaments'),
             Meteor.subscribe('games'),
             Meteor.subscribe('predictions'),
-            Meteor.subscribe('teams'),
             Meteor.subscribe('images')
         ];
     }
@@ -90,7 +89,7 @@ Router.route('/torneo/crear', {
     parent: 'dashboard',
     onBeforeAction: onBeforeActions.loginRequired,
     waitOn: function() {
-        return Meteor.subscribe('tournaments');
+        return [ Meteor.subscribe('tournaments'), Meteor.subscribe('images') ];
     }
 });
 Router.route('/torneo/editar/:slug', {
@@ -112,7 +111,8 @@ Router.route('/torneo/editar/:slug', {
         return [
             Meteor.subscribe('fantasyTournaments'),
             Meteor.subscribe('tournaments'),
-            Meteor.subscribe('invites')
+            Meteor.subscribe('invites'),
+            Meteor.subscribe('images')
         ];
     }
 });
@@ -136,7 +136,6 @@ Router.route('/torneo/:slug', {
             Meteor.subscribe('fantasyTournaments'),
             Meteor.subscribe('games'),
             Meteor.subscribe('predictions'),
-            Meteor.subscribe('teams'),
             Meteor.subscribe('images')
         ];
     }
@@ -199,13 +198,14 @@ Router.route('/mi-perfil/editar', {
         return Meteor.subscribe('images');
     }
 });
-Router.route('/(.*)', {
+// 404 Route - It's interrumpting admin pages
+/*Router.route('/(.*)', {
     name: 'pageNotFound',
     layoutTemplate: 'notFound',
     template: '404'
-});
+});*/
 
-// General events
+// Overall events
 Events = {
     'click .nav-toggle-alt': function(e) {
         e.preventDefault();
@@ -216,7 +216,7 @@ Events = {
         //make the collapse content to be shown or hide
         var toggle_switch = _this;
         $(collapse_content_selector).slideToggle(function() {
-            if (_this.css('display') == 'block') {
+            if (toggle_switch.find('span').hasClass('entypo-down-open')) {
                 //change the button label to be 'Show'
                 toggle_switch.html('<span class="entypo-up-open"></span>');
             } else {

@@ -84,6 +84,9 @@ Template.editTournament.onRendered(function() {
             }, 100);
         }
     });
+
+    // Tooltips
+    $('[data-toggle=tooltip]').tooltip();
 });
 
 // Events

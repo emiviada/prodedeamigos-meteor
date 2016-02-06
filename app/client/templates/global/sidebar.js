@@ -22,9 +22,10 @@ Template.sidebar.helpers({
 });
 Template.sidebar.events({
 	'click #skin-select #toggle': function(e) {
-		var _this = $(e.currentTarget);
+		var _this = $(e.currentTarget),
+			width = $(window).width();
 
-		if (_this.hasClass('active')) {
+		if (_this.hasClass('active') && width > 767) {
 			_this.removeClass('active');
 			$('#skin-select').animate({ left:0 }, 100);
 			$('.wrap-fluid').css({"width":"auto","margin-left":"250px"});
@@ -65,7 +66,7 @@ Template.sidebar.events({
 
 			$('.datepicker-wrap').css({"position":"absolute", "right":"84px"});
 
-			$('.skin-part').css({"visibility":"visible", "top":"3px"});
+			$('.skin-part').css({"visibility":"visible", "top":"-15px"});
 			$('.dark').css({"visibility":"hidden"});
 			$('#menu-showhide, .menu-left-nest').css({"margin":"0"});
 

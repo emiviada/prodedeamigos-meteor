@@ -1,12 +1,12 @@
 <template name="tournamentGamesWidget">
-	<div class="col-sm-6">
+	<div class="col-sm-12 col-md-6">
     	<div class="nest" id="tableStaticClose-{{_id}}">
-            <div class="title-alt">
-                <h6>
+            <div class="title-alt row">
+                <h6 class="col-xs-10">
                 	{{name}} Pr&oacute;ximos Partidos
                 	[<a href="{{pathFor 'seeTournament' slug=slug}}">ver torneo</a>]
             	</h6>
-                <div class="titleToggle">
+                <div class="titleToggle col-xs-1">
                     <a class="nav-toggle-alt" href="#tableStaticGames-{{_id}}">
                         <span class="entypo-up-open"></span>
                     </a>

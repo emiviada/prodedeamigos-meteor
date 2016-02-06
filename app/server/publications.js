@@ -1,5 +1,5 @@
 Meteor.publish("userData", function () {
-  	return Meteor.users.find({}, {fields: {'services': 1, 'emails': 1, 'createdAt': 1}});
+  	return Meteor.users.find({}, {fields: {'services': 1, 'emails': 1, 'profile': 1, 'createdAt': 1}});
 });
 
 	Meteor.publish('teams', function() {

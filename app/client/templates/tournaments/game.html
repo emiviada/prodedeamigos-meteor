@@ -1,9 +1,9 @@
 <template name="game">
-	<span class="col-sm-4 text-left">
+	<span class="col-sm-4 col-xs-4 col-xxs-12 text-left">
 		<img class="team-flag home" src="{{teamHome.flagImg.url}}" title="{{teamHome.flagImg.original.name}}">
 		{{teamHome.alias}}
 	</span>
-	<span class="col-sm-3 text-center result">
+	<span class="col-sm-3 col-xs-3 col-xxs-12 text-center result">
 		<select name="goalsHome" class="goals-game">
 			{{#each goalsOptions}}
 				<option value="{{val}}" {{selected val ../prediction.goalsHome}}>{{val}}</option>
@@ -16,17 +16,17 @@
 			{{/each}}
 		</select>
 	</span>
-	<span class="col-sm-4 text-right">
+	<span class="col-sm-4 col-xs-4 col-xxs-12 text-right">
 		{{teamAway.alias}}
 		<img class="team-flag away" src="{{teamAway.flagImg.url}}" title="{{teamAway.flagImg.original.name}}">
 	</span>
-	<span class="col-sm-1 text-center sb">
-		<button type="button" class="btn btn-success btn-sm {{mode}}">
+	<span class="col-sm-1 col-xs-1 col-xxs-12 text-center sb">
+		<button type="button" class="btn btn-success btn-sm btn-xxs {{mode}}">
 			<i class="fontawesome-ok"></i>
 		</button>
 	</span>
 
-	<span class="col-sm-12 pts">
+	<span class="col-sm-12 col-xs-12 pts">
 		Fecha: {{ formatDate playDate 'DD/MM/YYYY HH:mm' }}.
 		Quedan <span class="countdown {{_id}}"></span>
 	</span>

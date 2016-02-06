@@ -1,6 +1,7 @@
 
-// Subscriptions
+// General Subscriptions
 Meteor.subscribe('userData');
+Meteor.subscribe('teams');
 
 // Reset Password
 if (Accounts._resetPasswordToken) {
@@ -92,3 +93,11 @@ joinFromInvite = function() {
         Session.set('tournamentInvitationToken', null);
     }
 };
+
+// Window resizing
+window.addEventListener('resize', function(event){
+    var width = $(window).width();
+    if (width < 768) {
+        setTimeout(function(){ $("#skin-select #toggle").addClass('active').trigger('click'); }, 10);
+    }
+});

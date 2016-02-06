@@ -1,6 +1,6 @@
 <template name="tournament">
 	<!-- Positions -->
-	<div class="col-sm-6">
+	<div class="col-sm-12 col-md-6">
         <div class="nest" id="tableStaticClose">
             <div class="title-alt">
                 <h6>{{name}} Posiciones</h6>
@@ -13,14 +13,14 @@
 
             <div class="body-nest" id="tableStatic">
                 <section id="flip-scroll">
-                    <table class="table table-striped cf">
+                    <table class="table table-striped cf positions">
                         <thead class="cf">
                             <tr>
-                                <th>Pos.</th>
-                                <th>Usuario</th>
-                                <th class="numeric">Ac.</th>
+                                <th class="pos">Pos.</th>
+                                <th class="username">Usuario</th>
+                                <th class="numeric hidden-xxs">Ac.</th>
                                 {{#if matchExact}}
-                                    <th class="numeric">Ac.E.</th>
+                                    <th class="numeric hidden-xxs">Ac.E.</th>
                                 {{/if}}
                                 <th class="numeric">Pts</th>
                             </tr>
@@ -28,14 +28,14 @@
                         <tbody>
                             {{#each members }}
                                 <tr>
-                                    <td>{{pos}}.</td>
-                                    <td>
-                                        <img alt="" class="admin-pic table-position img-circle" src="{{ user.getProfilePicture }}">
+                                    <td class="pos">{{pos}}.</td>
+                                    <td class="username">
+                                        <img alt="" class="admin-pic table-position img-circle hidden-xxs" src="{{ user.getProfilePicture }}">
                                         {{ user.getFullName }}
                                     </td>
-                                    <td class="numeric">{{hits}}</td>
+                                    <td class="numeric hidden-xxs">{{hits}}</td>
                                     {{#if ../matchExact}}
-                                        <td class="numeric">{{hitsExact}}</td>
+                                        <td class="numeric hidden-xxs">{{hitsExact}}</td>
                                     {{/if}}
                                     <td class="numeric">{{points}}</td>
                                 </tr>
@@ -45,9 +45,9 @@
                         </tbody>
                     </table>
                     <ul class="legend">
-                        <li><strong>Ac.</strong>: Aciertos</li>
+                        <li class="hidden-xxs"><strong>Ac.</strong>: Aciertos</li>
                         {{#if matchExact}}
-                            <li><strong>Ac.E.</strong>: Aciertos Exactos</li>
+                            <li class="hidden-xxs"><strong>Ac.E.</strong>: Aciertos Exactos</li>
                         {{/if}}
                         <li><strong>Pts</strong>: Puntos</li>
                     </ul>
@@ -57,7 +57,7 @@
     </div>
 
     <!-- Partidos -->
-    <div class="col-sm-6">
+    <div class="col-sm-12 col-md-6">
     	<div class="nest" id="tableStaticClose">
             <div class="title-alt">
                 <h6>{{name}} Partidos</h6>
