@@ -22,7 +22,9 @@ Template.tournament.helpers({
             });
         });
 
-        return members;
+        return members.sort(function(a, b) {
+            return a.points < b.points;
+        });
     },
     'games': function() {
         var tournamentId = this.tournamentId,
@@ -30,7 +32,37 @@ Template.tournament.helpers({
 
         return Games.find({ tournamentId: tournamentId, playDate: {$gte: new Date(fromDate)}}, {sort: {playDate: 1}});
     },
+    'previousGames': function() {
+        var tournamentId = this.tournamentId,
+            fromDate = new Date().toLocaleString();
+
+        return Games.find(
+            {
+                tournamentId: tournamentId,
+                playDate: {$lte: new Date(fromDate)}
+            },
+            {
+                sort: {playDate: -1},
+                limit: 30
+            }
+        );
+    },
     'colspan': function() {
         return (this.matchExact)? 5 : 4;
     }
 });
+
+// onRendered
+/*Template.tournament.onRendered(function() {
+    // Tabs
+    $(".wizard-tab").steps({
+        headerTag: "h2",
+        bodyTag: "section",
+        transitionEffect: "none",
+        enableFinishButton: false,
+        enablePagination: false,
+        enableAllSteps: true,
+        titleTemplate: "#title#",
+        cssClass: "tabcontrol"
+    });
+});*/

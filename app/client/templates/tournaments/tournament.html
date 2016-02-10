@@ -37,7 +37,7 @@
                                     {{#if ../matchExact}}
                                         <td class="numeric hidden-xxs">{{hitsExact}}</td>
                                     {{/if}}
-                                    <td class="numeric">{{points}}</td>
+                                    <td class="numeric points">{{points}}</td>
                                 </tr>
                             {{else}}
                                 <tr><td colspan="{{colspan}}">No hay usuarios.</td></tr>
@@ -69,15 +69,50 @@
             </div>
 
             <div class="body-nest" id="tableStaticGames">
-                <ul class="games">
-                    {{#each games }}
-	                    <li class="row">
-	                    	{{> game}}
-	                    </li>
-                    {{else}}
-                    	<li>No hay partidos.</li>
-                    {{/each}}
-                </ul>
+
+                <div class="tabcontrol">
+
+                    <div class="steps clearfix">
+                        <ul role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#next" role="tab" aria-controls="next" data-toggle="tab">
+                                    Pr&oacute;ximos
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#previous" role="tab" aria-controls="previous" data-toggle="tab">
+                                    Anteriores
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content ptl clearfix">
+                        <section role="tabpanel" class="tab-pane fade in active" id="next">
+                            <ul class="games" data-ftid="{{_id}}">
+                                {{#each games }}
+                                    <li class="row ptm pbm">
+                                        {{> game}}
+                                    </li>
+                                {{else}}
+                                    <li>No hay partidos.</li>
+                                {{/each}}
+                            </ul>
+                        </section>
+
+                        <section role="tabpanel" class="tab-pane fade" id="previous">
+                            <ul class="games" data-ftid="{{_id}}">
+                                {{#each previousGames }}
+                                    <li class="row ptm pbm">
+                                        {{> previousGame}}
+                                    </li>
+                                {{else}}
+                                    <li>No hay partidos.</li>
+                                {{/each}}
+                            </ul>
+                        </section>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

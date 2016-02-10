@@ -97,7 +97,7 @@ Meteor.users.helpers({
     getSupportedTeam: function() {
     	var team = {name: null, alias: null};
 
-    	if (this.profile.supportedTeam) {
+    	if (this.profile && this.profile.supportedTeam) {
     		team = Teams.findOne({_id: this.profile.supportedTeam});
     	}
 

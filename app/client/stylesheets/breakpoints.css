@@ -152,6 +152,8 @@
     .positions .pos { padding-right:0 !important; }
     .positions .username { padding-left:0 !important; }
     .hidden-xxs { display:none !important; }
+    .tabcontrol > .steps > ul > li > a { padding: 10px 15px !important; }
+    .tabcontrol > .steps > ul > li.current > a { padding: 15px 15px 10px !important; }
 }
 @media screen and (max-width: 991px) {
     .row-block { margin-bottom: 10px; }

@@ -306,6 +306,13 @@ Invites.helpers({
 	}
 });
 
+// Predictions
+Predictions.helpers({
+	user: function() {
+		return Meteor.users.findOne(this.userId);
+	}
+});
+
 // Messages
 Messages.helpers({
 	getAuthor: function() {

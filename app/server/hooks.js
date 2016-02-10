@@ -16,7 +16,7 @@ Games.after.update(function (userId, doc, fieldNames, modifier, options) {
 						inc2[prediction.userId] = 0;
 					}
 
-					if (doc.goalsHome === prediction.goalsHome && doc.goalsAway === prediction.goalsAway) {
+					if (doc.goalsHome == prediction.goalsHome && doc.goalsAway == prediction.goalsAway) {
 						setObj.hit = true;
 						setObj.hitExact = true;
 						inc[prediction.userId]++;

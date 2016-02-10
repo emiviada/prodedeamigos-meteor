@@ -31,9 +31,9 @@
             <div class="form-group col-sm-6" id="points-exact-wrapper" style="display: {{displayMatchExactDropdown}};">
                 <label for="points-exact">Pts por acierto exacto</label>
                 <select name="points-exact" id="points-exact" class="form-control" size="1">
-                	<option value="1">1</option>
-                	<option value="2">2</option>
-                	<option value="3">3</option>
+                	<option value="1" {{selected 1 pointsPerExact}}>1</option>
+                	<option value="2" {{selected 2 pointsPerExact}}>2</option>
+                	<option value="3" {{selected 3 pointsPerExact}}>3</option>
                 </select>
             </div>
         </div>

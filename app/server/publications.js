@@ -20,8 +20,12 @@ Meteor.publish('games', function() {
 });
 
 Meteor.publish('predictions', function() {
-	var currentUser = this.userId;
-	return Predictions.find({userId: currentUser});
+    var currentUser = this.userId;
+    return Predictions.find({userId: currentUser});
+});
+
+Meteor.publish('gamePredictions', function(gameId) {
+    return Predictions.find({gameId: gameId});
 });
 
 Meteor.publish('invites', function() {

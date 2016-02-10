@@ -1,0 +1,22 @@
+<template name="previousGame">
+	<span class="col-sm-4 col-xs-4 col-xxs-12 text-left">
+		<img class="team-flag home" src="{{teamHome.flagImg.url}}" title="{{teamHome.flagImg.original.name}}">
+		{{teamHome.alias}}
+	</span>
+	<span class="col-sm-3 col-xs-3 col-xxs-12 text-center result">
+		{{ goalsHome }} - {{ goalsAway }}
+	</span>
+	<span class="col-sm-4 col-xs-4 col-xxs-12 text-right">
+		{{teamAway.alias}}
+		<img class="team-flag away" src="{{teamAway.flagImg.url}}" title="{{teamAway.flagImg.original.name}}">
+	</span>
+	<span class="col-sm-1 col-xs-1 col-xxs-12 text-center sb">
+		<button type="button" class="btn btn-success btn-sm btn-xxs" data-toggle="tooltip" data-placement="left" title data-original-title="Ver predicciones" data-gameId="{{_id}}">
+			<i class="fontawesome-eye-open"></i>
+		</button>
+	</span>
+
+	<span class="col-sm-12 col-xs-12 pts">
+		Fecha: {{ formatDate playDate 'DD/MM/YYYY HH:mm' }}.
+	</span>
+</template>

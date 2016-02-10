@@ -94,6 +94,7 @@ Router.route('/torneo/crear', {
 });
 Router.route('/torneo/editar/:slug', {
     name: 'editTournament',
+    title: 'Editar Torneo',
     template: 'editTournament',
     parent: 'dashboard',
     title: function() {
@@ -121,15 +122,15 @@ Router.route('/torneo/:slug', {
     template: 'tournament',
     onBeforeAction: onBeforeActions.loginRequired,
     parent: 'dashboard',
-    title: function() {
-        var data = this.data();
-        return data.name;
-    },
     data: function() {
         var currentTournament = this.params.slug,
             currentUser = Meteor.userId();
 
         return FantasyTournaments.findOne({ slug: currentTournament, 'members.userId': currentUser});
+    },
+    title: function() {
+        var data = this.data();
+        return (data)? data.name : '';
     },
     waitOn: function() {
         return [
