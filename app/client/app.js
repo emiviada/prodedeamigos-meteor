@@ -72,6 +72,14 @@ UI.registerHelper('formatDate', function(date, format) {
     return r;
 });
 
+// Function to check if we should add the class 'me'
+UI.registerHelper('classMe', function(userId) {
+    if (userId == Meteor.userId()) {
+        return 'me';
+    }
+    return;
+});
+
 // Global functions
 joinFromInvite = function() {
     // Individual invitation (by email)

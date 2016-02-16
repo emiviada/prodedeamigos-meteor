@@ -76,7 +76,7 @@ Schemas.Tournament = new SimpleSchema({
 			afFieldInput: {
 				multiple: true,
 				options: teamOptions,
-	            allowedValues: teamOptions
+	            allowedValues: teamOptionsKeys
 			}
 		}
 	},

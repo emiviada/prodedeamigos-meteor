@@ -27,7 +27,7 @@
                         </thead>
                         <tbody>
                             {{#each members }}
-                                <tr>
+                                <tr class="{{classMe user._id currentUser}}">
                                     <td class="pos">{{pos}}.</td>
                                     <td class="username">
                                         <img alt="" class="admin-pic table-position img-circle hidden-xxs" src="{{ user.getProfilePicture }}">

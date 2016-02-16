@@ -567,6 +567,7 @@ button.navbar-toggle.toggle-menu-mobile {
     margin-top: -5px;
     width: 35px;
 }
+.table-striped > tbody tr.me { background-color: #dff0d8; }
 .theme-bg {
     margin: 0 5px!important;
 }
