@@ -1,3 +1,8 @@
-.meteor/local
-.meteor/meteorite
-server/social-config.js
+app/.meteor/local
+app/.meteor/meteorite
+app/settings.json
+app/server/social-config.js
+bundle
+build.sh
+start.sh
+cfs
