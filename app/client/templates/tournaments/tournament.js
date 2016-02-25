@@ -15,7 +15,6 @@ Template.tournament.helpers({
         this.members.forEach(function(m) {
             users.map(function(user) {
                 if (m.userId === user._id) {
-                    m.pos = counter++;
                     m.user = user;
                     members.push(m);
                 }
@@ -25,6 +24,9 @@ Template.tournament.helpers({
         return members.sort(function(a, b) {
             return a.points < b.points;
         });
+    },
+    'pos': function(index) {
+        return index + 1;
     },
     'games': function() {
         var tournamentId = this.tournamentId,
