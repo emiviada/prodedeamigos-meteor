@@ -14,7 +14,7 @@ Template.editProfile.onRendered(function() {
 	var currentUser = Meteor.user();
 	// Select2
 	$('#teams').select2({
-		placeholder: (currentUser.profile.supportedTeam)? currentUser.getSupportedTeam.alias : '--',
+		placeholder: (currentUser.profile && currentUser.profile.supportedTeam)? currentUser.getSupportedTeam.alias : '--',
 		allowClear: true
 	});
 

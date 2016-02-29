@@ -19,12 +19,12 @@ Meteor.methods({
             } else {
                 check(info, {supportedTeam: String, about: String, firstname: String, lastname: String, email: String});
                 info.name = info.firstname + ' ' + info.lastname;
-                if (user.profile.picture) {
+                if (user.profile && user.profile.picture) {
                     info.picture = user.profile.picture;
                 }
             }
 
-            if (info.email !== Meteor.user().getEmailAddress && !facebookUser) { // Update email
+            if (info.email !== Meteor.user().getEmailAddress() && !facebookUser) { // Update email
 
                 // Validate if email already exists
                 if (Meteor.users.find({"emails.address": info.email}).count() ||
