@@ -1,18 +1,9 @@
 // Template: tournamentMessages
 
-// onCreated
-Template.tournamentMessages.onCreated(function() {
-	var data = this.data,
-		self = this;
-	this.autorun(function() {
-		self.subscribe('messages', data._id);
-	});
-});
-
 // Helpers
 Template.tournamentMessages.helpers({
 	'messages': function() {
-		return Messages.find();
+		return Messages.find({fantasyTournamentId: this._id});
 	}
 });
 

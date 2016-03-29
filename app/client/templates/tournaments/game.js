@@ -1,7 +1,19 @@
 // Template: game
 // onCreated
 Template.game.onCreated(function() {
-	this.data.prediction = (this.data.prediction())? this.data.prediction() : {_id: null, goalsHome: 0, goalsAway: 0};
+	var ft, ftid;
+
+	if (Router.current().route.getName() === 'dashboard') {
+		ft = Template.parentData(1);
+	} else {
+		ft = Template.parentData(1);
+		if (!ft) {
+			ft = Template.parentData(2);
+		}
+	}
+
+	this.data.prediction = (this.data.prediction(ft._id))?
+		this.data.prediction(ft._id) : {_id: null, goalsHome: 0, goalsAway: 0};
 });
 
 // onRendered
@@ -65,6 +77,12 @@ Template.game.events({
 				row.addClass('highlight');
 				_this.addClass('edit');
 				setTimeout(function() { row.removeClass('highlight'); }, 1000);
+				ga('send', {
+				  	hitType: 'event',
+				  	eventCategory: 'Prediction',
+				  	eventAction: 'done',
+				  	eventLabel: Meteor.userId()
+				});
 			}
 		});
 	}

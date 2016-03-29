@@ -5,9 +5,13 @@ Template.tournamentGamesWidget.events($.extend(Events, {}));
 // Helpers
 Template.tournamentGamesWidget.helpers({
     'games': function() {
-        var tournamentId = this.tournamentId,
-            fromDate = new Date().toLocaleString();
+        var tournamentId = this.tournamentId;
 
-        return Games.find({ tournamentId: tournamentId, playDate: {$gte: new Date(fromDate)}}, {sort: {playDate: 1}});
+        return Games.find({
+	        	tournamentId: tournamentId,
+	        	playDate: {$gte: new Date()}
+	        },
+	        {sort: {playDate: 1}}
+        );
     }
 });

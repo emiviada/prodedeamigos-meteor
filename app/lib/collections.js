@@ -171,8 +171,12 @@ Games.helpers({
 	teamAway: function() {
 		return Teams.findOne(this.teamAwayId);
 	},
-	prediction: function() {
-		return Predictions.findOne({userId: Meteor.userId(), gameId: this._id});
+	prediction: function(fantasyTournamentId) {
+		return Predictions.findOne({
+			userId: Meteor.userId(),
+			gameId: this._id,
+			fantasyTournamentId: fantasyTournamentId
+		});
 	}
 });
 

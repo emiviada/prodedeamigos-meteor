@@ -33,7 +33,7 @@ Meteor.publish('invites', function() {
 });
 
 Meteor.publish('messages', function(ftId) {
-    return Messages.find({fantasyTournamentId: ftId});
+    return Messages.find();
 });
 
 Meteor.publish('images', function() {

@@ -26,16 +26,8 @@ onBeforeActions = {
 // Routes
 Router.configure({
     layoutTemplate: 'layout',
-    defaultBreadcrumbLastLink: false
-    /*loadingTemplate: 'loading',
-    waitOn: function() {
-        var currentUser = Meteor.userId();
-        if (currentUser) {
-            return Meteor.subscribe('fantasyTournaments');
-        } else {
-            this.next();
-        }
-    }*/
+    defaultBreadcrumbLastLink: false,
+    trackPageView: true
 });
 Router.route('home', {
     path: '/',
@@ -137,7 +129,8 @@ Router.route('/torneo/:slug', {
             Meteor.subscribe('fantasyTournaments'),
             Meteor.subscribe('games'),
             Meteor.subscribe('predictions'),
-            Meteor.subscribe('images')
+            Meteor.subscribe('images'),
+            Meteor.subscribe('messages')
         ];
     }
 });
@@ -186,7 +179,11 @@ Router.route('/mi-perfil', {
     title: 'Mi Perfil',
     parent: 'dashboard',
     waitOn: function() {
-        return Meteor.subscribe('images');
+        return [
+            Meteor.subscribe('games'),
+            Meteor.subscribe('predictions'),
+            Meteor.subscribe('images')
+        ];
     }
 });
 Router.route('/mi-perfil/editar', {

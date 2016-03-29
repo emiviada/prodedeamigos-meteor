@@ -29,19 +29,17 @@ Template.tournament.helpers({
         return index + 1;
     },
     'games': function() {
-        var tournamentId = this.tournamentId,
-            fromDate = new Date().toLocaleString();
+        var tournamentId = this.tournamentId;
 
-        return Games.find({ tournamentId: tournamentId, playDate: {$gte: new Date(fromDate)}}, {sort: {playDate: 1}});
+        return Games.find({ tournamentId: tournamentId, playDate: {$gte: new Date()}}, {sort: {playDate: 1}});
     },
     'previousGames': function() {
-        var tournamentId = this.tournamentId,
-            fromDate = new Date().toLocaleString();
+        var tournamentId = this.tournamentId;
 
         return Games.find(
             {
                 tournamentId: tournamentId,
-                playDate: {$lte: new Date(fromDate)}
+                playDate: {$lte: new Date()}
             },
             {
                 sort: {playDate: -1},
@@ -53,18 +51,3 @@ Template.tournament.helpers({
         return (this.matchExact)? 5 : 4;
     }
 });
-
-// onRendered
-/*Template.tournament.onRendered(function() {
-    // Tabs
-    $(".wizard-tab").steps({
-        headerTag: "h2",
-        bodyTag: "section",
-        transitionEffect: "none",
-        enableFinishButton: false,
-        enablePagination: false,
-        enableAllSteps: true,
-        titleTemplate: "#title#",
-        cssClass: "tabcontrol"
-    });
-});*/
