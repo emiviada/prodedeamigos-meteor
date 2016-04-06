@@ -26,6 +26,7 @@ onBeforeActions = {
 // Routes
 Router.configure({
     layoutTemplate: 'layout',
+    loadingTemplate: 'loading',
     defaultBreadcrumbLastLink: false,
     trackPageView: true
 });
