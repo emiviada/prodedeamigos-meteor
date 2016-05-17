@@ -63,6 +63,9 @@ Template.game.events({
 			return;
 		}
 
+		// Disable it while processing..
+		_this.addClass('disabled');
+
 		prediction.goalsHome = row.find('[name="goalsHome"]').val();
 		prediction.goalsAway = row.find('[name="goalsAway"]').val();
 		if (!_this.hasClass('edit')) { // New one
@@ -74,9 +77,13 @@ Template.game.events({
 
 		Meteor.call(method, prediction, function(error, result) {
 			if (!error) {
+				toastr.success('Pronostico guardado!', null, {timeOut: 500});
 				row.addClass('highlight');
 				_this.addClass('edit');
-				setTimeout(function() { row.removeClass('highlight'); }, 1000);
+				setTimeout(function() {
+					row.removeClass('highlight');
+					_this.removeClass('disabled');
+				}, 1000);
 				ga('send', {
 				  	hitType: 'event',
 				  	eventCategory: 'Prediction',

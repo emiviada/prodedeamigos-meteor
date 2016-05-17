@@ -2756,3 +2756,8 @@ div.error-content {
     display: list-item;
 }
 /*** END CSS STEPS ***/
+.loading {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 50px;
+}
