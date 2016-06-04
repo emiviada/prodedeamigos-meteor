@@ -46,7 +46,7 @@ Games.after.update(function (userId, doc, fieldNames, modifier, options) {
 							points += inc2[member.userId] * ft.pointsPerExact;
 						}
 						FantasyTournaments.update(
-							{'members.userId': member.userId},
+							{_id: ft._id, 'members.userId': member.userId},
 							{$inc: {
 								'members.$.hits': inc[member.userId],
 								'members.$.hitsExact': inc2[member.userId],
