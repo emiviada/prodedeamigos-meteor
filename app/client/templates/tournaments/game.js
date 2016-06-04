@@ -77,7 +77,7 @@ Template.game.events({
 
 		Meteor.call(method, prediction, function(error, result) {
 			if (!error) {
-				toastr.success('Pronostico guardado!', null, {timeOut: 500});
+				toastr.success('Pronostico guardado!', null, {timeOut: 1000});
 				row.addClass('highlight');
 				_this.addClass('edit');
 				setTimeout(function() {

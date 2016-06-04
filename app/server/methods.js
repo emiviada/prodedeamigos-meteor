@@ -115,8 +115,10 @@ Meteor.methods({
             	object.updatedAt = new Date();
             	return Predictions.insert(object);
             } else if (mode === 'edit') {
-            	object.updatedAt = new Date();
-            	return Predictions.update({_id: object._id}, {$set: object});
+            	var id = object._id;
+                delete object._id;
+                object.updatedAt = new Date();
+            	return Predictions.update({_id: id}, {$set: object});
             }
         } else {
             throw new Meteor.Error("not-logged-in", "You're not logged-in.");
