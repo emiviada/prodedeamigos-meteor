@@ -314,6 +314,21 @@ Invites.helpers({
 Predictions.helpers({
 	user: function() {
 		return Meteor.users.findOne(this.userId);
+	},
+	game: function() {
+		return Games.findOne(this.gameId);
+	},
+	getGame: function() {
+		var game = Games.findOne(this.gameId);
+
+		if (game) {
+			return game.v();
+		} else {
+			return this.gameId;
+		}
+	},
+	fantasyTournament: function() {
+		return FantasyTournaments.findOne(this.fantasyTournamentId);
 	}
 });
 

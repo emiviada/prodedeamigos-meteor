@@ -98,6 +98,30 @@ AdminConfig = {
                 }
             }
         },
+        Predictions: {
+            icon: 'calendar-check-o',
+            color: 'green',
+            extraFields: ['gameId', 'fantasyTournamentId', 'userId'],
+            tableColumns: [
+                { label: 'Game', name: 'getGame()' },
+                { label: 'User', name: 'user().getFullName()' },
+                { label: 'Fantasy Tournament', name: 'fantasyTournament().name' },
+                { label: 'Goals Home', name: 'goalsHome' },
+                { label: 'Goals Away', name: 'goalsAway' },
+                { label: 'Created At', name: 'createdAt' }
+            ],
+            routes: {
+                'view': {
+                    waitOn: function () { return [Meteor.subscribe('games'), Meteor.subscribe('fantasyTournaments')]; }
+                },
+                'new': {
+                    waitOn: function () { return [Meteor.subscribe('games'), Meteor.subscribe('fantasyTournaments')]; }
+                },
+                'edit': {
+                    waitOn: function () { return [Meteor.subscribe('games'), Meteor.subscribe('fantasyTournaments')]; }
+                }
+            }
+        },
         Invites: {
             icon: 'link',
             color: 'green',
